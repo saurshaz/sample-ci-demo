@@ -1,0 +1,133 @@
+$ bx dev create
+Retrieving available Starter Kits...
+
+--------------------------------------------------------------------------------
+Select an application type:
+--------------------------------------------------------------------------------
+ 1. Blank App
+ 2. Backend Service / Web App
+ 3. Mobile App
+--------------------------------------------------------------------------------
+ 0. Exit
+--------------------------------------------------------------------------------
+? Enter selection number:> 2
+2
+
+
+--------------------------------------------------------------------------------
+Select a language:
+--------------------------------------------------------------------------------
+ 1. Go
+ 2. Java - MicroProfile / Java EE
+ 3. Java - Spring
+ 4. Node
+ 5. Python - Django
+ 6. Python - Flask
+ 7. Scala
+ 8. Swift
+--------------------------------------------------------------------------------
+ 0. Return to the previous selection
+--------------------------------------------------------------------------------
+? Enter selection number:> 4
+4
+
+? Select a Starter Kit:
+
+--------------------------------------------------------------------------------
+APPSERVICE
+--------------------------------------------------------------------------------
+ 1. MEAN Stack: MongoDb, Express.js, Angular, Node.js (Web App) - A starter
+    project for setting up a mongodb, express, angular and node application
+ 2. MERN Stack: MongoDb, Express.js, React, Node.js (Web App) - A starter
+    project for setting up a mongodb, express, react and node application
+ 3. Node.js BFF Example with Express.js (Backend for Frontend) - A starter for
+    building backend-for-frontend APIs in Node.js, using the Express.js
+    framework.
+ 4. Node.js Example Serverless App (Functions) - A starter providing a set of
+    Cloud Functions and API for a serverless backend that uses Cloudant NoSQL
+    database.
+ 5. Node.js Microservice with Express.js (Microservice) - A starter for
+    building a microservice backend in Node.js, using the Express.js framework.
+ 6. Node.js Web App with Express.js (Web App) - A starter that provides a
+    basic web serving application in Node.js, using the Express.js framework.
+ 7. Node.js Web App with Express.js and React (Web App) - A starter that
+    provides a rich React frontend delivered from a Node.js application,
+    including key web development tools Gulp, SaaS, and Webpack, using the
+    Express.js framework.
+
+--------------------------------------------------------------------------------
+FINANCE
+--------------------------------------------------------------------------------
+ 8. Wealth Management Chatbot (Web App) - A chatbot that allows the user to
+    query the status of their investments and evaluate the impact of different
+    market scenarios on their investment portfolio. It can easily be extended
+    in several ways.
+
+--------------------------------------------------------------------------------
+WATSON
+--------------------------------------------------------------------------------
+ 9. Watson Assistant Basic (Web App) - Simple application that demonstrates
+    the Watson Assistant service in a chat interface simulating banking tasks.
+10. Watson Natural Language Understanding Basic (Web App) - Collection of APIs
+    that can analyze text to help you understand its concepts, entities,
+    keywords, sentiment, and can create a custom model for some APIs to get
+    specific results that are tailored to your domain.
+11. Watson News Intelligence (Web App) - This starter kit demonstrates how to
+    query news content to understand what people are saying or feeling about
+    important topics.
+12. Watson Speech to Text Basic (Web App) - Basic sample of Speech to Text
+    service to convert speech in multiple languages into text.
+13. Watson Text to Speech Basic (Web App) - Basic sample of how to use Text to
+    Speech for streaming, low latency, synthesis of audio from text.
+14. Watson Visual Recognition Basic (Web App) - Use deep learning algorithms
+    to analyze images that can give you insights into your visual content.
+--------------------------------------------------------------------------------
+ 0. Return to the previous selection
+--------------------------------------------------------------------------------
+? Enter selection number:> 6
+6
+
+? Enter a name for your application> icici-demo
+icici-demo
+
+? Select the resource group for this application:
+1.
+2. MobileFirstK8
+Enter a number> 1
+1
+
+? Select the resource group for this application:
+1.
+2. MobileFirstK8
+Enter a number> 1
+1
+
+? Select the resource group for this application:
+1.
+2. MobileFirstK8
+Enter a number> 2
+2
+
+? Do you want to select a service to connect to this application? [y/n]> n
+n
+
+
+--------------------------------------------------------------------------------
+Select from the following DevOps Toolchain and target runtime environment
+options:
+ 1. IBM DevOps, using Cloud Foundry buildpacks
+ 2. IBM DevOps, using Kubernetes containers
+ 3. No DevOps, with manual deployment
+--------------------------------------------------------------------------------
+? Enter selection number:> 3
+3
+Creating application...
+The application icici-demo has been created in IBM Cloud.
+
+Preparing generators...
+Generating application...
+Unzipping application into directory: icici-demo...
+
+The application, icici-demo, has been successfully saved into the current
+directory.
+
