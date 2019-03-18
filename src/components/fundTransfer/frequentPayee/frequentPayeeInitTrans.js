@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 
 import AccountSelection from "../accountSelection";
 import Tabs from "./tabs";
+import Utilities from "../../../services/utilities";
 
 class FrequentPayeeInitTrans extends React.Component {
     constructor(props) {
@@ -17,6 +18,7 @@ class FrequentPayeeInitTrans extends React.Component {
         this.handleTransAmtChange = this.handleTransAmtChange.bind(this);
         this.handleRemarksChange = this.handleRemarksChange.bind(this);
         this.goBack = this.goBack.bind(this);
+        this.cancelTrans = this.cancelTrans.bind(this);
         this.goForward = this.goForward.bind(this);
     }
 
@@ -51,6 +53,13 @@ class FrequentPayeeInitTrans extends React.Component {
 
     goBack() {
         this.props.history.push("/fundTransfer");
+    }
+
+    cancelTrans() {
+        var utils = new Utilities();
+
+        utils.resetAccounts();
+        this.props.history.push("/");
     }
 
     goForward() {
@@ -130,7 +139,7 @@ class FrequentPayeeInitTrans extends React.Component {
                                 </div>
                             </div>
                             <div class="m-10">
-                                <button onClick={this.goBack} className="btn btn-primary" style={{ border: "1px solid #D9D9D9", background: "#D9D9D9", font: "Roboto", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "#727374", marginRight: "20px" }}>CANCEL</button>
+                                <button onClick={this.cancelTrans} className="btn btn-primary" style={{ border: "1px solid #D9D9D9", background: "#D9D9D9", font: "Roboto", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "#727374", marginRight: "20px" }}>CANCEL</button>
                                 <button onClick={this.goForward} className="btn btn-primary" style={{ border: "1px solid #F18324", background: "#F18324", font: "Roboto", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "##FFFFFF" }}>PROCEED TO PAY</button>
                             </div>
                             <div style={{ font: "Roboto", color: "#CB4919", fontSize: "10px", textAlign: "right", paddingRight: "20px" }}>

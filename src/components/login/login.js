@@ -7,35 +7,36 @@ export default class Login extends React.Component {
     constructor(props) {
         super(props);
 
+        // this.handleUserNameChange = this.handleUserNameChange.bind(this);
+        // this.handlePasswordChange = this.handlePasswordChange.bind(this);
+        this.logUser = this.logUser.bind(this);
+        this.cancelLogin = this.cancelLogin.bind(this);
+
         this.state = {
             userName: '',
             password: '',
             loginDisabled: false,
             error: ""
         }
-
-        this.handleUserNameChange = this.handleUserNameChange.bind(this);
-        this.handlePasswordChange = this.handlePasswordChange.bind(this);
-        this.logUser = this.logUser.bind(this);
-        this.cancelLogin = this.cancelLogin.bind(this);
     }
 
     cancelLogin(e) {
         e.preventDefault();
 
-        this.setState = {
-            "userName": '',
-            "password": '',
-            "loginDisabled": false,
-            "error": ''
-        }
+        this.setState({
+            userName: '',
+            password: '',
+            loginDisabled: false,
+            error: ''
+        });
+
+        console.log("cancelLogin", this.state.userName);
     }
 
     logUser(e) {
         e.preventDefault();
 
         sessionStorage.clear();
-
 
         if (this.state.userName.trim().length <= 0 || this.state.password.trim().length <= 0) {
             this.setState({ "error": "Please enter user name and password." })
@@ -141,18 +142,18 @@ export default class Login extends React.Component {
                             this.props.logIn();
                         }
                     }).catch(error => {
-                        this.setState({ "error": "Unable to retrieve beneficiaries" })
+                        this.setState({ loginDisabled: false, "error": "Unable to retrieve beneficiaries" })
                         console.log("ERROR", error);
                     });
                     // ------------------------------------------------------------------------                    
                 }
             }).catch(error => {
-                this.setState({ "error": "Unable to retrieve user accounts" })
+                this.setState({ loginDisabled: false, "error": "Unable to retrieve user accounts" })
                 console.log("ERROR", error);
             });
             // ------------------------------------------------------------------------
         }).catch(error => {
-            this.setState({ "error": "Unable to login" })
+            this.setState({ loginDisabled: false, "error": "Unable to login" })
             console.log("ERROR", error);
         });
 
@@ -167,11 +168,11 @@ export default class Login extends React.Component {
         return account;
     }
 
-    handleUserNameChange(e) {
+    handleUserNameChange = (e) => {
         this.setState({ "userName": e.target.value, "error": "" });
     }
 
-    handlePasswordChange(e) {
+    handlePasswordChange = (e) => {
         this.setState({ "password": e.target.value, "error": "" });
     }
 
@@ -185,7 +186,7 @@ export default class Login extends React.Component {
                     <div className="titleContainer">
                         Login to Internet Banking
                     </div>
-                    <div className="mainContainer">
+                    <form className="mainContainer">
                         <div className="form-group row">
                             {/* <label htmlFor="staticEmail" className="col-sm-2 col-form-label">User Id</label> */}
                             <div>
@@ -207,7 +208,7 @@ export default class Login extends React.Component {
                                 {this.state.error}
                             </span>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         )

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { Route, Switch, BrowserRouter as Router, withRouter } from "react-router-dom";
 
 import logo from "../images/logo-new.png";
 import sidebar from "../images/sidebar.png"
@@ -44,6 +44,7 @@ export default class Bank extends React.Component {
     }
 
     logOut() {
+        window.location = "/";
         this.props.logOut();
     }
 
@@ -170,7 +171,7 @@ export default class Bank extends React.Component {
                                     <Route path="/fundTransfer/ownICICI/" exact component={OwnICICISelAcc}></Route>
                                     <Route path="/fundTransfer/ownICICI/initTrans" component={OwnICICIInitTrans}></Route>
                                     <Route path="/fundTransfer/ownICICI/confirmTrans" component={OwnICICIConfirmTrans}></Route>
-                                    <Route path="/fundTransfer/ownICICI/successTrans" component={OwnICICISuccessTrans}></Route>                            
+                                    <Route path="/fundTransfer/ownICICI/successTrans" component={OwnICICISuccessTrans}></Route>
 
                                     <Route path="/fundTransfer/otherICICI/" exact component={OtherICICISelAcc}></Route>
                                     <Route path="/fundTransfer/otherICICI/initTrans" component={OtherICICIInitTrans}></Route>
@@ -189,4 +190,4 @@ export default class Bank extends React.Component {
             </div>
         );
     }
-}   
+}

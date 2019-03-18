@@ -36,6 +36,16 @@ export default class AccountSelection extends React.Component {
         });
     }
 
+    // addSpace(count) {
+    //     let space = '&nbsp;'
+
+    //     for (let i = 0; i < count; i++) {
+    //         space = space + '&#160;'
+    //     }
+
+    //     return space;
+    // }
+
     render() {
         let selectedAccountNumber = this.state.accountNoFromTransfer || -1;
 
@@ -46,13 +56,15 @@ export default class AccountSelection extends React.Component {
                     {
                         this.state.savingsAccounts ?
                             this.state.savingsAccounts.map(accounts => {
-                                return <option value={accounts.accountNumber}>Saving Account   {accounts.accountNumber} {"................"}  &#x20B9;{accounts.currentBalance}</option>
+                                return <option value={accounts.accountNumber}>{'Saving Account'} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {accounts.accountNumber} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#x20B9;{Number(accounts.currentBalance || 0).toLocaleString('en-IN')}</option>
                             }) : null
                     }
                     {
                         this.state.currentAccounts ?
                             this.state.currentAccounts.map(accounts => {
-                                return <option value={accounts.accountNumber}>Current Account   {accounts.accountNumber}  {"................"}  &#x20B9;{accounts.currentBalance}</option>
+                                // return <option value={accounts.accountNumber}>Current Account   {accounts.accountNumber}  {this.addSpace()}  &#x20B9;{Number(accounts.currentBalance || 0).toLocaleString('en-IN')}</option>
+                                // return <option value={accounts.accountNumber}>{'Current Account' + this.addSpace(4) + accounts.accountNumber + this.addSpace(15) + '&#x20B9;' + Number(accounts.currentBalance || 0).toLocaleString('en-IN')}</option>
+                                return <option value={accounts.accountNumber}>{'Current Account'} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {accounts.accountNumber} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#x20B9;{Number(accounts.currentBalance || 0).toLocaleString('en-IN')}</option>
                             }) : null
                     }
                 </select>

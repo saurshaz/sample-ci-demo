@@ -35,7 +35,8 @@ class Savings extends React.Component {
                     Savings Account {this.props.account.accountNumber}
                 </div>
                 <div style={{ font: "Roboto", color: "#193E6C", fontWeight: "medium", fontSize: "24px" }}>
-                    &#x20b9; {this.props.account.currentBalance}
+                    {/* &#x20b9; {this.props.account.currentBalance} */}
+                    &#x20b9; {Number(this.props.account.currentBalance || 0).toLocaleString('en-IN')}
                 </div>
                 <div style={{ font: "Helvetica Neue", color: "#193E6C", fontSize: "10px" }} className="m30">
                     Current withdrawal Balance as on {this.formatDate()}

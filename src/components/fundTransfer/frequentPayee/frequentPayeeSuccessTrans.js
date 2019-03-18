@@ -54,10 +54,16 @@ class FrequentPayeeSuccessTrans extends React.Component {
     }
 
     makeAnotherTranscation() {
+        var utils = new Utilities();
+
+        utils.resetAccounts();
         this.props.history.push("/fundTransfer/");
     }
 
     done() {
+        var utils = new Utilities();
+
+        utils.resetAccounts();
         this.props.history.push("/");
     }
 
@@ -86,7 +92,8 @@ class FrequentPayeeSuccessTrans extends React.Component {
                                 Transcation Successful
                             </div>
                             <div style={{ font: "Roboto", color: "#00040A", fontSize: "20px", textAlign: "center" }}>
-                                Amount <span style={{ fontWeight: "bold" }}>₹{this.state.accountToTransfer.transAmt}</span>
+                                {/* Amount <span style={{ fontWeight: "bold" }}>₹{this.state.accountToTransfer.transAmt}</span> */}
+                                Amount <span style={{ fontWeight: "bold" }}>&#x20B9;{Number(this.state.accountToTransfer.transAmt || 0).toLocaleString('en-IN')}</span>                                
                             </div>
                             <div style={{ font: "Roboto", color: "#00040A", fontSize: "14px", textAlign: "center" }}>
                                 from {this.state.accountFromTransfer.accountNumber} has been sent to the
