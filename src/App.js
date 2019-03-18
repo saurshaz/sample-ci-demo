@@ -30,6 +30,8 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
+        Hello World!!
+        
         {this.state.loggedIn ? <Bank logOut={this.logOut}></Bank> : <Login logIn={this.logIn}></Login>}
       </div>
     )
