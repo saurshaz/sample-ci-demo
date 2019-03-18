@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
+import Utilities from "../../../services/utilities";
 import icn_success from "../../../images/icn_success.png";
 
 class OwnICICISuccessTrans extends React.Component {
@@ -23,7 +24,7 @@ class OwnICICISuccessTrans extends React.Component {
         let currentAccounts = JSON.parse(sessionStorage.getItem("currentAccounts")) || [];
         let accountNoFromTransfer = sessionStorage.getItem("accountNoFromTransfer") || -1;
 
-        let frequentBeneficiaryAccs = JSON.parse(sessionStorage.getItem("frequentBeneficiaryAccs")) || [];
+        // let frequentBeneficiaryAccs = JSON.parse(sessionStorage.getItem("frequentBeneficiaryAccs")) || [];
 
         let accountFromTransfer = {};
         let accountToTransfer = {};
@@ -40,7 +41,7 @@ class OwnICICISuccessTrans extends React.Component {
             }
         })
 
-        frequentBeneficiaryAccs.map((account) => {
+        this.mergeOwnICICAccountsFromSession().map((account) => {
             if (account.selectedForTrans === true) {
                 accountToTransfer = account;
             }
@@ -52,11 +53,27 @@ class OwnICICISuccessTrans extends React.Component {
         });
     }
 
+
+    mergeOwnICICAccountsFromSession() {
+        const savingsAccounts = JSON.parse(sessionStorage.getItem("savingsAccounts"));
+        const currentAccounts = JSON.parse(sessionStorage.getItem("currentAccounts"));
+
+        const ownICICIAccs = [...savingsAccounts, ...currentAccounts];
+
+        return ownICICIAccs;
+    }
+
     makeAnotherTranscation() {
+        var utils = new Utilities();
+
+        utils.resetAccounts();
         this.props.history.push("/fundTransfer/ownICICI");
     }
 
     done() {
+        var utils = new Utilities();
+
+        utils.resetAccounts();
         this.props.history.push("/");
     }
 
@@ -85,7 +102,8 @@ class OwnICICISuccessTrans extends React.Component {
                                 Transcation Successful
                             </div>
                             <div style={{ font: "Roboto", color: "#00040A", fontSize: "20px", textAlign: "center" }}>
-                                Amount <span style={{ fontWeight: "bold" }}>₹{this.state.accountToTransfer.transAmt}</span>
+                                {/* Amount <span style={{ fontWeight: "bold" }}>₹{this.state.accountToTransfer.transAmt}</span> */}
+                                Amount <span style={{ fontWeight: "bold" }}>&#x20B9;{Number(this.state.accountToTransfer.transAmt || 0).toLocaleString('en-IN')}</span>
                             </div>
                             <div style={{ font: "Roboto", color: "#00040A", fontSize: "14px", textAlign: "center" }}>
                                 from {this.state.accountFromTransfer.accountNumber} has been sent to the

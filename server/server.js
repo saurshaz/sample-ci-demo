@@ -46,6 +46,7 @@ app.post('/login', function (req, res) {
 
   var params = '?params=["' + req.body.params.name + '","' + req.body.params.passwd + '"]';
 
+  // axios.get('http://119.81.79.228:30258/mfp/api/adapters/ICICIAdapter/getAuthToken' + params, { headers: headers }
   axios.get('http://10.64.18.39:30258/mfp/api/adapters/ICICIAdapter/getAuthToken' + params, { headers: headers }
   ).then(function (response) {
     res.send(response.data);

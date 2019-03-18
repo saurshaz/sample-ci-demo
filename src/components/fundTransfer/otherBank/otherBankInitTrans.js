@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 
 import AccountSelection from "../accountSelection";
 import Tabs from "./tabs";
+import Utilities from "../../../services/utilities";
 
 class OtherBankInitTrans extends React.Component {
     constructor(props) {
@@ -17,6 +18,7 @@ class OtherBankInitTrans extends React.Component {
         this.handleTransAmtChange = this.handleTransAmtChange.bind(this);
         this.handleRemarksChange = this.handleRemarksChange.bind(this);
         this.goBack = this.goBack.bind(this);
+        this.cancelTrans = this.cancelTrans.bind(this);
         this.goForward = this.goForward.bind(this);
     }
 
@@ -39,13 +41,11 @@ class OtherBankInitTrans extends React.Component {
 
     handleTransAmtChange = (evt) => {
         this.state.accountToTransfer.transAmt = evt.target.value;
-
         this.setState({ "accountToTransfer": this.state.accountToTransfer });
     }
 
     handleRemarksChange = (evt) => {
         this.state.accountToTransfer.remarks = evt.target.value;
-
         this.setState({ "accountToTransfer": this.state.accountToTransfer });
     }
 
@@ -53,8 +53,25 @@ class OtherBankInitTrans extends React.Component {
         this.props.history.push("/fundTransfer/otherBank/");
     }
 
+    cancelTrans() {
+        var utils = new Utilities();
+
+        utils.resetAccounts();
+        this.props.history.push("/");
+    }
+
     goForward() {
         let otherBankBeneficiaryAccs = JSON.parse(sessionStorage.getItem("otherBankBeneficiaryAccs")) || [];
+
+        if (Number(this.state.accountToTransfer.transAmt) <= 0) {
+            alert("Please enter the amount to transfer!");
+            return;
+        }
+
+        if (this.checkSufficientFunds() == false) {
+            alert("Insufficient funds to transfer!");
+            return;
+        }
 
         otherBankBeneficiaryAccs.map((account) => {
             if (account) {
@@ -69,6 +86,27 @@ class OtherBankInitTrans extends React.Component {
 
         this.props.history.push("/fundTransfer/otherBank/confirmTrans");
     }
+
+    checkSufficientFunds() {
+        let ret = false;
+        const savingsAccounts = JSON.parse(sessionStorage.getItem("savingsAccounts"));
+        const currentAccounts = JSON.parse(sessionStorage.getItem("currentAccounts"));
+
+        let ownICICIAccs = [...savingsAccounts, ...currentAccounts];
+
+        ownICICIAccs.map((ownAccount) => {
+            console.log("ownAccount", ownAccount.accountType, ownAccount.accountNumber, ownAccount.currentBalance);
+
+            if (ownAccount.accountNumber === sessionStorage.getItem("accountNoFromTransfer")) {
+                if (ownAccount.currentBalance >= this.state.accountToTransfer.transAmt) {
+                    ret = true;
+                }
+            }
+        })
+
+        return ret;
+    }
+
 
     render() {
         return (
@@ -130,7 +168,7 @@ class OtherBankInitTrans extends React.Component {
                                 </div>
                             </div>
                             <div class="m-10">
-                                <button onClick={this.goBack} className="btn btn-primary" style={{ border: "1px solid #D9D9D9", background: "#D9D9D9", font: "Roboto", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "#727374", marginRight: "20px" }}>CANCEL</button>
+                                <button onClick={this.cancelTrans} className="btn btn-primary" style={{ border: "1px solid #D9D9D9", background: "#D9D9D9", font: "Roboto", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "#727374", marginRight: "20px" }}>CANCEL</button>
                                 <button onClick={this.goForward} className="btn btn-primary" style={{ border: "1px solid #F18324", background: "#F18324", font: "Roboto", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "##FFFFFF" }}>PROCEED TO PAY</button>
                             </div>
                             <div style={{ font: "Roboto", color: "#CB4919", fontSize: "10px", textAlign: "right", paddingRight: "20px" }}>

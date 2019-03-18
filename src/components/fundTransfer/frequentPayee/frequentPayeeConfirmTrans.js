@@ -81,7 +81,7 @@ class FrequentPayeeConfirmTrans extends React.Component {
                     accounts.data.array.map((account) => {
                         if (account.accountType === "Savings") {
                             savingsAccounts.push(account);
-                        } else if (account.accountType === "Credit") {
+                        } else if (account.accountType === "Current") {
                             currentAccounts.push(account);
                         }
                     })
@@ -98,12 +98,14 @@ class FrequentPayeeConfirmTrans extends React.Component {
             // } else {
             //     this.setState({ confirmDisabled: false, "error": "Transaction faild." });
             // }
+        }).catch(error => {
+            console.log(error);
         })
     }
 
     render() {
         return (
-            <div className="container" >
+            <div className="container">
                 <div className="row">
                     <div className="col-12">
                         <div className="text-left">

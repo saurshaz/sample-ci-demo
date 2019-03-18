@@ -139,8 +139,7 @@ class FrequentPayeeInitTrans extends React.Component {
                                         {this.state.accountToTransfer.accountOwner}
                                     </div>
                                     <div style={{ font: "Roboto", color: "#193E6C", fontSize: "12px" }} className="m10">
-                                        Enter the Amount {this.state.accountToTransfer.transAmt}
-                                        {/* Enter the Amount */}
+                                        Enter the Amount
                                     </div>
                                     <div style={{ paddingBottom: "10px", borderBottom: '1.5px solid #193E6C', font: "Roboto", color: "#000000", fontSize: "14px" }}>
                                         <input style={{ border: "none" }} onChange={this.handleTransAmtChange} value={this.state.accountToTransfer.transAmt}></input>

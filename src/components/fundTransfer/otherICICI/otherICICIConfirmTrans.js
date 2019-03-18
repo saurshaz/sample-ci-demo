@@ -12,10 +12,12 @@ class OtherICICIConfirmTrans extends React.Component {
 
         this.state = {
             accountToTransfer: {},
+            confirmDisabled: false,
             error: ""
         }
 
         this.goBack = this.goBack.bind(this);
+        this.cancelTrans = this.cancelTrans.bind(this);
         this.confirmPay = this.confirmPay.bind(this);
     }
 
@@ -39,6 +41,13 @@ class OtherICICIConfirmTrans extends React.Component {
         this.props.history.push("/fundTransfer/otherICICI/initTrans");
     }
 
+    cancelTrans() {
+        var utils = new Utilities();
+
+        utils.resetAccounts();
+        this.props.history.push("/");
+    }
+
     confirmPay() {
         const fundTransParams = {
             params: {
@@ -56,6 +65,8 @@ class OtherICICIConfirmTrans extends React.Component {
             }
         }
 
+        this.setState({ confirmDisabled: true });
+
         axios.post('/fundTransfer', fundTransParams).then(response => {
             console.log("fundTransfer", response);
 
@@ -70,13 +81,10 @@ class OtherICICIConfirmTrans extends React.Component {
                     accounts.data.array.map((account) => {
                         if (account.accountType === "Savings") {
                             savingsAccounts.push(account);
-                        } else if (account.accountType === "Credit") {
+                        } else if (account.accountType === "Current") {
                             currentAccounts.push(account);
                         }
                     })
-
-                    var utils = new Utilities();
-                    utils.resetAccounts();
 
                     sessionStorage.setItem("savingsAccounts", JSON.stringify(savingsAccounts))
                     sessionStorage.setItem("currentAccounts", JSON.stringify(currentAccounts));
@@ -84,11 +92,11 @@ class OtherICICIConfirmTrans extends React.Component {
                     this.props.history.push("/fundTransfer/otherICICI/successTrans");
                 }
             }).catch(error => {
-                this.setState({ "error": "Unable to get User Accounts" })
+                this.setState({ confirmDisabled: false, "error": "Unable to get User Accounts" })
                 console.log("ERROR", error);
             });
             // } else {
-            //     this.setState("error", "Transaction faild.");
+            //     this.setState({ confirmDisabled: false, "error": "Transaction faild." });
             // }
         }).catch(error => {
             console.log(error);
@@ -128,7 +136,8 @@ class OtherICICIConfirmTrans extends React.Component {
                                         Amount
                                     </div>
                                     <div style={{ paddingBottom: "10px", font: "Roboto", color: "#000000", fontSize: "14px" }} className="m20">
-                                        ₹{this.state.accountToTransfer.transAmt}
+                                        {/* ₹{this.state.accountToTransfer.transAmt} */}
+                                        &#x20B9;{Number(this.state.accountToTransfer.transAmt || 0).toLocaleString('en-IN')}
                                     </div>
                                 </div>
                                 <div style={{ flex: "0 0 35%", marginRight: "5%" }}>
@@ -176,9 +185,12 @@ class OtherICICIConfirmTrans extends React.Component {
                                     </div>
                                 </div>
                             </div>
+                            <div style={{ font: "Roboto", color: "#CB4919", fontSize: "12px", textAlign: "left", paddingLeft: "20px" }}>
+                                {this.state.error}
+                            </div>
                             <div class="m-10">
-                                <button onClick={this.goBack} className="btn btn-primary" style={{ border: "1px solid #D9D9D9", background: "#D9D9D9", font: "Roboto", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "#727374", marginRight: "20px" }}>CANCEL</button>
-                                <button onClick={this.confirmPay} className="btn btn-primary" style={{ border: "1px solid #F18324", background: "#F18324", font: "Roboto", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "##FFFFFF" }}>CONFIRM</button>
+                                <button onClick={this.cancelTrans} className="btn btn-primary" style={{ border: "1px solid #D9D9D9", background: "#D9D9D9", font: "Roboto", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "#727374", marginRight: "20px" }}>CANCEL</button>
+                                <button onClick={this.confirmPay} disabled={this.state.confirmDisabled} className="btn btn-primary" style={{ border: "1px solid #F18324", background: "#F18324", font: "Roboto", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "##FFFFFF" }}>CONFIRM</button>
                             </div>
                             <div style={{ font: "Roboto", color: "#CB4919", fontSize: "10px", textAlign: "right", paddingRight: "20px" }}>
                                 <span>More than ₹1 lakh transaction would take 4 hours to complete</span>

@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 
 import AccountSelection from "../accountSelection";
 import Tabs from "./tabs";
+import Utilities from "../../../services/utilities";
 
 class OtherICICIInitTrans extends React.Component {
     constructor(props) {
@@ -17,6 +18,7 @@ class OtherICICIInitTrans extends React.Component {
         this.handleTransAmtChange = this.handleTransAmtChange.bind(this);
         this.handleRemarksChange = this.handleRemarksChange.bind(this);
         this.goBack = this.goBack.bind(this);
+        this.cancelTrans = this.cancelTrans.bind(this);
         this.goForward = this.goForward.bind(this);
     }
 
@@ -39,13 +41,11 @@ class OtherICICIInitTrans extends React.Component {
 
     handleTransAmtChange = (evt) => {
         this.state.accountToTransfer.transAmt = evt.target.value;
-
         this.setState({ "accountToTransfer": this.state.accountToTransfer });
     }
 
     handleRemarksChange = (evt) => {
         this.state.accountToTransfer.remarks = evt.target.value;
-
         this.setState({ "accountToTransfer": this.state.accountToTransfer });
     }
 
@@ -53,8 +53,26 @@ class OtherICICIInitTrans extends React.Component {
         this.props.history.push("/fundTransfer/otherICICI/");
     }
 
+    cancelTrans() {
+        var utils = new Utilities();
+
+        utils.resetAccounts();
+        this.props.history.push("/");
+    }
+
+
     goForward() {
         let otherICICIBeneficiaryAccs = JSON.parse(sessionStorage.getItem("otherICICIBeneficiaryAccs")) || [];
+
+        if (Number(this.state.accountToTransfer.transAmt) <= 0) {
+            alert("Please enter the amount to transfer!");
+            return;
+        }
+
+        if (this.checkSufficientFunds() == false) {
+            alert("Insufficient funds to transfer!");
+            return;
+        }
 
         otherICICIBeneficiaryAccs.map((account) => {
             if (account) {
@@ -68,6 +86,26 @@ class OtherICICIInitTrans extends React.Component {
         sessionStorage.setItem("otherICICIBeneficiaryAccs", JSON.stringify(otherICICIBeneficiaryAccs));
 
         this.props.history.push("/fundTransfer/otherICICI/confirmTrans");
+    }
+
+    checkSufficientFunds() {
+        let ret = false;
+        const savingsAccounts = JSON.parse(sessionStorage.getItem("savingsAccounts"));
+        const currentAccounts = JSON.parse(sessionStorage.getItem("currentAccounts"));
+
+        let ownICICIAccs = [...savingsAccounts, ...currentAccounts];
+
+        ownICICIAccs.map((ownAccount) => {
+            console.log("ownAccount", ownAccount.accountType, ownAccount.accountNumber, ownAccount.currentBalance);
+
+            if (ownAccount.accountNumber === sessionStorage.getItem("accountNoFromTransfer")) {
+                if (ownAccount.currentBalance >= this.state.accountToTransfer.transAmt) {
+                    ret = true;
+                }
+            }
+        })
+
+        return ret;
     }
 
     render() {

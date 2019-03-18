@@ -86,7 +86,7 @@ export default class Login extends React.Component {
                     response.data.array.map((account) => {
                         if (account.accountType === "Savings") {
                             savingsAccounts.push(this.addDefaultProperties(account));
-                        } else if (account.accountType === "Credit") {
+                        } else if (account.accountType === "Current") {
                             currentAccounts.push(this.addDefaultProperties(account));
                         }
                     })

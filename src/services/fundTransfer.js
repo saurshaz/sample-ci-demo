@@ -32,7 +32,7 @@ export default class FundTransfer {
                         response.data.array.map((account) => {
                             if (account.accountType === "Savings") {
                                 savingsAccounts.push(account);
-                            } else if (account.accountType === "Credit") {
+                            } else if (account.accountType === "Current") {
                                 currentAccounts.push(account);
                             }
                         })
