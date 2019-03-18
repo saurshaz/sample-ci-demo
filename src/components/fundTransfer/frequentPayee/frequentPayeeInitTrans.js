@@ -26,6 +26,7 @@ class FrequentPayeeInitTrans extends React.Component {
     componentDidMount() {
         let frequentBeneficiaryAccs = JSON.parse(sessionStorage.getItem("frequentBeneficiaryAccs")) || [];
 
+
         let accountToTransfer = {};
 
         frequentBeneficiaryAccs.map((account) => {
@@ -41,13 +42,11 @@ class FrequentPayeeInitTrans extends React.Component {
 
     handleTransAmtChange = (evt) => {
         this.state.accountToTransfer.transAmt = evt.target.value;
-
         this.setState({ "accountToTransfer": this.state.accountToTransfer });
     }
 
     handleRemarksChange = (evt) => {
         this.state.accountToTransfer.remarks = evt.target.value;
-
         this.setState({ "accountToTransfer": this.state.accountToTransfer });
     }
 
@@ -65,9 +64,20 @@ class FrequentPayeeInitTrans extends React.Component {
     goForward() {
         let frequentBeneficiaryAccs = JSON.parse(sessionStorage.getItem("frequentBeneficiaryAccs")) || [];
 
+        if (Number(this.state.accountToTransfer.transAmt) <= 0) {
+            alert("Please enter the amount to transfer!");
+            return;
+        }
+
+        if (this.checkSufficientFunds() == false) {
+            alert("Insufficient funds to transfer!");
+            return;
+        }
+
         frequentBeneficiaryAccs.map((account) => {
             if (account) {
                 if (account.accountNumber === this.state.accountToTransfer.accountNumber) {
+
                     account.transAmt = this.state.accountToTransfer.transAmt;
                     account.remarks = this.state.accountToTransfer.remarks;
                 }
@@ -77,6 +87,26 @@ class FrequentPayeeInitTrans extends React.Component {
         sessionStorage.setItem("frequentBeneficiaryAccs", JSON.stringify(frequentBeneficiaryAccs));
 
         this.props.history.push("/fundTransfer/frequentPayee/confirmTrans");
+    }
+
+    checkSufficientFunds() {
+        let ret = false;
+        const savingsAccounts = JSON.parse(sessionStorage.getItem("savingsAccounts"));
+        const currentAccounts = JSON.parse(sessionStorage.getItem("currentAccounts"));
+
+        let ownICICIAccs = [...savingsAccounts, ...currentAccounts];
+
+        ownICICIAccs.map((ownAccount) => {
+            console.log("ownAccount", ownAccount.accountType, ownAccount.accountNumber, ownAccount.currentBalance);
+
+            if (ownAccount.accountNumber === sessionStorage.getItem("accountNoFromTransfer")) {
+                if (ownAccount.currentBalance >= this.state.accountToTransfer.transAmt) {
+                    ret = true;
+                }
+            }
+        })
+
+        return ret;
     }
 
     render() {
@@ -109,8 +139,9 @@ class FrequentPayeeInitTrans extends React.Component {
                                         {this.state.accountToTransfer.accountOwner}
                                     </div>
                                     <div style={{ font: "Roboto", color: "#193E6C", fontSize: "12px" }} className="m10">
-                                        Enter the Amount
-                                </div>
+                                        Enter the Amount {this.state.accountToTransfer.transAmt}
+                                        {/* Enter the Amount */}
+                                    </div>
                                     <div style={{ paddingBottom: "10px", borderBottom: '1.5px solid #193E6C', font: "Roboto", color: "#000000", fontSize: "14px" }}>
                                         <input style={{ border: "none" }} onChange={this.handleTransAmtChange} value={this.state.accountToTransfer.transAmt}></input>
                                     </div>
