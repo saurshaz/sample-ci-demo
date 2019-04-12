@@ -14,7 +14,7 @@ export default class Tabs extends React.Component {
                     <div className="mainText" style={{ font: "Helvetica Neue", color: "#962824", fontSize: "14px", paddingTop: "10px", paddingBottom: "10px" }}>Credit card</div>
                 </div>
                 <div className="tabItem">
-                    <div className="mainText" style={{ font: "Helvetica Neue", color: "#962824", fontSize: "14px", paddingTop: "10px", paddingBottom: "10px" }}>Looans</div>
+                    <div className="mainText" style={{ font: "Helvetica Neue", color: "#962824", fontSize: "14px", paddingTop: "10px", paddingBottom: "10px" }}>Loans</div>
                 </div>
                 <div className="tabItem">
                     <div className="mainText" style={{ font: "Helvetica Neue", color: "#962824", fontSize: "14px", paddingTop: "10px", paddingBottom: "10px" }}>Insurance</div>

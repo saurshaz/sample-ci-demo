@@ -14,6 +14,9 @@ const localConfig = require('./config/local.json');
 const path = require('path');
 const axios = require('axios');
 
+const SERVER = 'http://10.64.18.39:30258';
+// const SERVER = 'http://119.81.79.228:30258';
+
 const logger = log4js.getLogger(appName);
 logger.level = process.env.LOG_LEVEL || 'info'
 const app = express();
@@ -46,8 +49,7 @@ app.post('/login', function (req, res) {
 
   var params = '?params=["' + req.body.params.name + '","' + req.body.params.passwd + '"]';
 
-  // axios.get('http://119.81.79.228:30258/mfp/api/adapters/ICICIAdapter/getAuthToken' + params, { headers: headers }
-  axios.get('http://10.64.18.39:30258/mfp/api/adapters/ICICIAdapter/getAuthToken' + params, { headers: headers }
+  axios.get(`${SERVER}/mfp/api/adapters/ICICIAdapter/getAuthToken` + params, { headers: headers }
   ).then(function (response) {
     res.send(response.data);
   }).catch(function (error) {
@@ -62,7 +64,7 @@ app.post('/getAllAccountsOfUser', function (req, res) {
 
   var params = '?params=["' + req.body.params.name + '","' + req.body.params.header + '"]';
 
-  axios.get('http://10.64.18.39:30258/mfp/api/adapters/ICICIAdapter/getAllAccountsOfUser' + params, { headers: headers })
+  axios.get(`${SERVER}/mfp/api/adapters/ICICIAdapter/getAllAccountsOfUser` + params, { headers: headers })
     .then(function (response) {
       res.send(response.data);
     }).catch(function (error) {
@@ -76,7 +78,7 @@ app.post('/getBeneficiaryForUser', function (req, res) {
   };
   var params = '?params=["' + req.body.params.name + '","' + req.body.params.header + '"]';
 
-  axios.get('http://10.64.18.39:30258/mfp/api/adapters/ICICIAdapter/getBeneficiaryForUser' + params, { headers: headers })
+  axios.get(`${SERVER}/mfp/api/adapters/ICICIAdapter/getBeneficiaryForUser` + params, { headers: headers })
     .then(function (response) {
       res.send(response.data);
     }).catch(function (error) {
@@ -91,7 +93,7 @@ app.post('/fundTransfer', function (req, res) {
 
   var params = '?params=["' + req.body.params.fromAcct + '","' + req.body.params.toAccnt + '","' + req.body.params.trfAmnt + '","' + req.body.params.header + '"]';
 
-  axios.get('http://10.64.18.39:30258/mfp/api/adapters/ICICIAccountAdapter/fundTransfer' + params, { headers: headers })
+  axios.get(`${SERVER}/mfp/api/adapters/ICICIAccountAdapter/fundTransfer` + params, { headers: headers })
     .then(function (response) {
       res.send(response.data);
     }).catch(function (error) {

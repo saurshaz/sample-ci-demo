@@ -1,6 +1,5 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import * as axios from "axios";
 
 import Tabs from "./tabs";
 import Savings from "./savings";
