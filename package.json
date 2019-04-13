@@ -17,7 +17,8 @@
     "test": "nyc mocha --exit",
     "dev": "nodemon server/server.js",
     "build-client": "rm -rf './build' && react-scripts build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start": "react-scripts start"
   },
   "nodemonConfig": {
     "env": {

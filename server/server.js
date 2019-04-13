@@ -101,14 +101,14 @@ app.post('/fundTransfer', function (req, res) {
     });
 });
 
-app.get("/*", (req, res) => {
-  res.sendFile(publicPath + "/index.html", (err) => {
-    if (err) {
-      res.status(500).send(err);
-    }
+// app.get("/*", (req, res) => {
+//   res.sendFile(publicPath + "/index.html", (err) => {
+//     if (err) {
+//       res.status(500).send(err);
+//     }
 
-  });
-})
+//   });
+// })
 // Add your code here
 
 const port = process.env.PORT || localConfig.port;
