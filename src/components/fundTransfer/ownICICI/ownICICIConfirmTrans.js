@@ -92,7 +92,7 @@ class OwnICICIConfirmTrans extends React.Component {
                     accounts.data.array.map((account) => {
                         if (account.accountType === "Savings") {
                             savingsAccounts.push(account);
-                        } else if (account.accountType === "Ccurrent") {
+                        } else if (account.accountType === "Current") {
                             currentAccounts.push(account);
                         }
                     })

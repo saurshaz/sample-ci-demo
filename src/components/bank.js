@@ -1,12 +1,14 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter as Router, withRouter } from "react-router-dom";
+import Modal from 'react-modal';
+import * as axios from "axios";
+import ibmmfpfanalytics from "ibm-mfp-web-sdk/lib/analytics/ibmmfpfanalytics";
 
 import logo from "../images/logo-new.png";
-import sidebar from "../images/sidebar.png"
 import sidebarTop from "../images/sidebar-top.png"
 import sidebarMiddle from "../images/sidebar-middle.png"
 import sidebarBottom from "../images/sidebar-bottom.png"
-
+import bell from "../images/bell-32.png"
 
 import '../App.css';
 import '../Main.css';
@@ -40,12 +42,147 @@ export default class Bank extends React.Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            modalIsOpen: false
+        }
+
         this.logOut = this.logOut.bind(this);
+        this.openModal = this.openModal.bind(this);
+        this.closeModal = this.closeModal.bind(this)
+        this.closeModalOk = this.closeModalOk.bind(this)
+        this.closeModalCancel = this.closeModalCancel.bind(this);
     }
 
     logOut() {
+        if (window.location.pathname.indexOf("/confirmTrans") > 0) {
+            console.log("Show popup!!!");
+            this.openModal();
+        } else {
+            window.location = "/";
+            this.props.logOut();
+        }
+    }
+
+    openModal() {
+        this.setState({ modalIsOpen: true });
+    }
+
+    closeModal() {
+        console.log("Model Close");
+        this.setState({ modalIsOpen: false });
+    }
+
+    closeModalOk() {
+        console.log("Model Close - Ok");
+
+        let accountFromTransfer = this.getAccountFromTransfer();
+        let accountToTransfer = {};
+        let data = {};
+
+        if (window.location.pathname.indexOf("frequentPayee/confirmTrans") > 0) {
+            const frequentBeneficiaryAccs = JSON.parse(sessionStorage.getItem("frequentBeneficiaryAccs")) || [];
+
+            frequentBeneficiaryAccs.map((account) => {
+                if (account.selectedForTrans === true) {
+                    accountToTransfer = account;
+                }
+            })
+
+            data = this.createRequestPacket(accountFromTransfer, accountToTransfer);
+        } else if (window.location.pathname.indexOf("ownICICI/confirmTrans") > 0) {
+            this.mergeOwnICICAccountsFromSession().map((account) => {
+                if (account.selectedForTrans === true) {
+                    accountToTransfer = account;
+                }
+            })
+
+            data = this.createRequestPacket(accountFromTransfer, accountToTransfer);
+        } else if (window.location.pathname.indexOf("otherICICI/confirmTrans") > 0) {
+            const otherICICIBeneficiaryAccs = JSON.parse(sessionStorage.getItem("otherICICIBeneficiaryAccs")) || [];
+
+            otherICICIBeneficiaryAccs.map((account) => {
+                if (account.selectedForTrans === true) {
+                    accountToTransfer = account;
+                }
+            })
+
+            data = this.createRequestPacket(accountFromTransfer, accountToTransfer);
+        } else if (window.location.pathname.indexOf("otherBank/confirmTrans") > 0) {
+            const otherBankBeneficiaryAccs = JSON.parse(sessionStorage.getItem("otherBankBeneficiaryAccs")) || [];
+
+            otherBankBeneficiaryAccs.map((account) => {
+                if (account.selectedForTrans === true) {
+                    accountToTransfer = account;
+                }
+            })
+
+            data = this.createRequestPacket(accountFromTransfer, accountToTransfer);
+        }
+
+        console.log(data);
+
+        axios.post('/saveTransaction', data).then(response => {
+            console.log("saveTransaction", response);
+
+            window.location = "/";
+            this.props.logOut();
+        }).catch(error => {
+            this.setState({ loginDisabled: false, "error": "Unable to save transaction" })
+            console.log("ERROR", error);
+        });
+
+        ibmmfpfanalytics.addEvent({ 'ICICI-Demo': 'Model Closed' });
+
+        this.setState({ modalIsOpen: false });
+    }
+
+    closeModalCancel() {
+        console.log("Model Close - Cancel");
+        this.setState({ modalIsOpen: false });
+
         window.location = "/";
-        this.props.logOut();
+        this.props.logOut();    }
+
+
+    createRequestPacket(accountFromTransfer, accountToTransfer) {
+        const data = {
+            "userId": sessionStorage.getItem("userName"),
+            "fromAccount": accountFromTransfer.accountNumber,
+            "toAccount": accountToTransfer.accountNumber,
+            "toAccountType": accountToTransfer.accountType,
+            "fromAccountType": accountFromTransfer.accountType,
+            "beneficiaryName": accountToTransfer.accountOwner,
+            "transferAmount": accountToTransfer.transAmt,
+            "remarks": accountToTransfer.remarks,
+            "header": sessionStorage.getItem("accessHeader")
+        }
+
+        return data;
+
+    }
+
+    mergeOwnICICAccountsFromSession() {
+        const savingsAccounts = JSON.parse(sessionStorage.getItem("savingsAccounts"));
+        const currentAccounts = JSON.parse(sessionStorage.getItem("currentAccounts"));
+
+        const ownICICIAccs = [...savingsAccounts, ...currentAccounts];
+
+        return ownICICIAccs;
+    }
+
+    getAccountFromTransfer() {
+        const accountNoFromTransfer = sessionStorage.getItem("accountNoFromTransfer")
+        let accountFromTransfer = {};
+
+        const ownICICIAccs = this.mergeOwnICICAccountsFromSession();
+
+        ownICICIAccs.map(account => {
+            if (account.accountNumber == accountNoFromTransfer) {
+                accountFromTransfer = account;
+            }
+        })
+
+        return accountFromTransfer;
     }
 
     render() {
@@ -187,7 +324,26 @@ export default class Bank extends React.Component {
                         </div>
                     </div>
                 </div>
-            </div>
+                <Modal
+                    isOpen={this.state.modalIsOpen}
+                    onRequestClose={this.closeModal}>
+                    <div>
+                        <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+                            <img src={bell} style={{ width: "32px", height: "32px", margin: "20px" }}></img>
+                            <h1>Fund Transfer</h1>
+                        </div>
+                        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", margin: "50px" }}>
+                            <h5>A fund transfer is in progress. Would you like to save it to continue later?</h5>
+                            <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", margin: "50px" }}>
+                                <button style={{ margin: "10px" }} onClick={this.closeModalOk}>Ok</button>
+                                <button style={{ margin: "10px" }} onClick={this.closeModalCancel}>Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </Modal>
+            </div >
         );
     }
 }
+
+Modal.setAppElement('#root');

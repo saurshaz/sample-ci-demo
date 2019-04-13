@@ -121,7 +121,7 @@ class OwnICICIInitTrans extends React.Component {
             console.log("ownAccount", ownAccount.accountType, ownAccount.accountNumber, ownAccount.currentBalance);
 
             if (ownAccount.accountNumber === sessionStorage.getItem("accountNoFromTransfer")) {
-                if (ownAccount.currentBalance >= this.state.accountToTransfer.transAmt) {
+                if (Number(ownAccount.currentBalance) >= Number(this.state.accountToTransfer.transAmt)) {
                     ret = true;
                 }
             }

@@ -43,6 +43,14 @@ app.post('/test', function (req, res) {
 });
 
 app.post('/login', function (req, res) {
+  // res.send({
+  //   "userId": "sunil",
+  //   "firstName": "firstName",
+  //   "lastName": "lastName",
+  //   "userEmailId": "userEmailId",
+  //   "accessHeader": "adsasdadsdsadasdasdsad"
+  // });
+
   const headers = {
     'Content-Type': 'application/json'
   };
@@ -58,6 +66,39 @@ app.post('/login', function (req, res) {
 });
 
 app.post('/getAllAccountsOfUser', function (req, res) {
+  // res.send({
+  //   array: [
+  //     {
+  //       "_id": "07aa61b35664832bcfe7465672fdef3f",
+  //       "_rev": "91-c5272096bb0dd36ba8bd4a3b3a27a8d2",
+  //       "userId": "sunil",
+  //       "type": "customerAccount",
+  //       "accountNumber": "0386423456200",
+  //       "subType": "relationship",
+  //       "accountOwner": "Sunil Kapoor",
+  //       "accountType": "Savings",
+  //       "currentBalance": "133150",
+  //       "accountLastModifyOn": "2019-02-09T10:32:30.640Z",
+  //       "bank": "ICICI",
+  //       "frequent": "false"
+  //     },
+  //     {
+  //       "_id": "4e699f5bfeccad847a8348ae45154ca9",
+  //       "_rev": "66-75f4888a06852cd8f2e80e3122b446a9",
+  //       "userId": "sunil",
+  //       "type": "customerAccount",
+  //       "accountNumber": "0386423456201",
+  //       "subType": "relationship",
+  //       "accountOwner": "Sunil Kapoor",
+  //       "accountType": "Credit",
+  //       "currentBalance": "-125500",
+  //       "accountLastModifyOn": "2019-02-09T10:32:30.640Z",
+  //       "bank": "ICICI",
+  //       "frequent": "true"
+  //     }
+  //   ]
+  // })
+
   const headers = {
     'Content-Type': 'application/json'
   };
@@ -73,6 +114,87 @@ app.post('/getAllAccountsOfUser', function (req, res) {
 });
 
 app.post('/getBeneficiaryForUser', function (req, res) {
+  // res.send({
+  //   array:
+  //     [
+  //       {
+  //         "_id": "1b3e775a097da82e0cdfa2e9d1e57094",
+  //         "_rev": "22-d26459204fa0216a4c471e3dd8015bdb",
+  //         "userId": "sunil",
+  //         "type": "customerAccount",
+  //         "beneficiariesaccounts": null,
+  //         "accountNumber": "1486423458200",
+  //         "subType": "beneficiary",
+  //         "accountOwner": "Ajoy Kapoor",
+  //         "accountType": "Savings",
+  //         "currentBalance": "9200",
+  //         "accountLastModifyOn": "2019-02-09T10:32:30.640Z",
+  //         "bank": "HDFC",
+  //         "frequent": "true"
+  //       },
+  //       {
+  //         "_id": "36d5a0ab5e6931e48de100df6d3decbb",
+  //         "_rev": "9-1e2e8179aef79d2443f1a01227b05dea",
+  //         "userId": "sunil",
+  //         "type": "customerAccount",
+  //         "beneficiariesaccounts": null,
+  //         "accountNumber": "2586423459200",
+  //         "subType": "beneficiary",
+  //         "accountOwner": "Ajit Kapoor",
+  //         "accountType": "Savings",
+  //         "currentBalance": "7000",
+  //         "accountLastModifyOn": "2019-02-09T10:32:30.640Z",
+  //         "bank": "ICICI",
+  //         "frequent": "false"
+  //       },
+  //       {
+  //         "_id": "36d5a0ab5e6931e48de100df6d3decbb",
+  //         "_rev": "9-1e2e8179aef79d2443f1a01227b05dea",
+  //         "userId": "sunil",
+  //         "type": "customerAccount",
+  //         "beneficiariesaccounts": null,
+  //         "accountNumber": "25864234594545",
+  //         "subType": "beneficiary",
+  //         "accountOwner": "Himmmat Singh",
+  //         "accountType": "Savings",
+  //         "currentBalance": "70000",
+  //         "accountLastModifyOn": "2019-02-09T10:32:30.640Z",
+  //         "bank": "ICICI",
+  //         "frequent": "true"
+  //       },
+  //       {
+  //         "_id": "386bbd51f248c077fea03271bb2c1317",
+  //         "_rev": "6-2636465547b1a54fa6727cb42124b915",
+  //         "userId": "sunil",
+  //         "type": "customerAccount",
+  //         "beneficiariesaccounts": null,
+  //         "accountNumber": "0386423456235",
+  //         "subType": "beneficiary",
+  //         "accountOwner": "Rakesh Sharmaa",
+  //         "accountType": "Credit",
+  //         "currentBalance": "1000",
+  //         "accountLastModifyOn": "2019-02-08T19:58:33.086Z",
+  //         "bank": "HSBC",
+  //         "frequent": "true"
+  //       },
+  //       {
+  //         "_id": "a301a67dada8f4b2fa3af67924871f9b",
+  //         "_rev": "5-8e5b61940ddabffd735d6a4ce69e6327",
+  //         "userId": "sunil",
+  //         "type": "customerAccount",
+  //         "beneficiariesaccounts": null,
+  //         "accountNumber": "0386423457200",
+  //         "subType": "beneficiary",
+  //         "accountOwner": "Swapna Kapoor",
+  //         "accountType": "Savings",
+  //         "currentBalance": "10000",
+  //         "accountLastModifyOn": "2019-02-09T10:32:30.640Z",
+  //         "bank": "Bank Of Baroda",
+  //         "frequent": "false"
+  //       }
+  //     ]
+  // })
+
   const headers = {
     'Content-Type': 'application/json'
   };
@@ -85,6 +207,20 @@ app.post('/getBeneficiaryForUser', function (req, res) {
       res.send(error);
     });
 });
+
+app.post('/saveTransaction', function (req, res) {
+  const headers = {
+    'Content-Type': 'application/json'
+  };
+
+  axios.get(`${SERVER}/mfp/api/adapters/ICICIAccountAdapter/saveTransaction`, req.body, { headers: headers })
+    .then(function (response) {
+      res.send(response.data);
+    }).catch(function (error) {
+      res.send(error);
+    });
+});
+
 
 app.post('/fundTransfer', function (req, res) {
   const headers = {
@@ -101,14 +237,14 @@ app.post('/fundTransfer', function (req, res) {
     });
 });
 
-// app.get("/*", (req, res) => {
-//   res.sendFile(publicPath + "/index.html", (err) => {
-//     if (err) {
-//       res.status(500).send(err);
-//     }
+app.get("/*", (req, res) => {
+  res.sendFile(publicPath + "/index.html", (err) => {
+    if (err) {
+      res.status(500).send(err);
+    }
 
-//   });
-// })
+  });
+})
 // Add your code here
 
 const port = process.env.PORT || localConfig.port;

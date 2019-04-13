@@ -1,4 +1,4 @@
-console.log("init.js");
+console.log("Configuring Analytics for applicaiton: com.data.icicibank.");
 
 require.config({
     'paths': {
@@ -20,7 +20,7 @@ require(['ibmmfpfanalytics', 'mfp'], function (ibmmfpfanalytics, WL) {
 
             console.log("Analytics for applicaiton: com.data.icicibank, intialized.");
 
-            ibmmfpfanalytics.addEvent({ 'Application initialized': 'Analytics for applicaiton: com.data.icicibank, intialized.' });
+            ibmmfpfanalytics.addEvent({ 'ICICI-Demo': 'Analytics for applicaiton: com.data.icicibank, intialized.' });
             ibmmfpfanalytics.send();
         });
 });

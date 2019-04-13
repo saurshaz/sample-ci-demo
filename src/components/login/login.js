@@ -2,7 +2,7 @@ import React from "react";
 import * as axios from "axios";
 
 import iciciLogo from "./../../images/logo-new.png";
-import Modal from 'react-modal';//*****
+
 export default class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -12,40 +12,13 @@ export default class Login extends React.Component {
         this.logUser = this.logUser.bind(this);
         this.cancelLogin = this.cancelLogin.bind(this);
 
-        this.openModal = this.openModal.bind(this); //*****
-        this.closeModal = this.closeModal.bind(this); //*****
-        this.closeModalOk = this.closeModalOk.bind(this); //*****
-        this.closeModalCancel = this.closeModalCancel.bind(this); //*****
-
         this.state = {
             userName: '',
             password: '',
             loginDisabled: false,
             error: "",
-            modalIsOpen: false //*****
         }
     }
-
-    //*****
-    openModal() {
-        this.setState({ modalIsOpen: true });
-    }
-
-    closeModal() {
-        console.log("Model Close");
-        this.setState({ modalIsOpen: false });
-    }
-
-    closeModalOk() {
-        console.log("Model Close - Ok");
-        this.setState({ modalIsOpen: false });
-    }
-
-    closeModalCancel() {
-        console.log("Model Close - Cancel");
-        this.setState({ modalIsOpen: false });
-    }
-    //*****
 
     cancelLogin(e) {
         e.preventDefault();
@@ -236,25 +209,8 @@ export default class Login extends React.Component {
                             </span>
                         </div>
                     </form>
-                </div>
-                <button onClick={this.openModal}>Model</button>//*****
-                <Modal
-                    isOpen={this.state.modalIsOpen}
-                    onRequestClose={this.closeModal}>
-                    <div>
-                        <h1>Fund Transfer</h1>
-                        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                            <h5>A fund transfer is in progress. Would you like to save it to continue later?</h5>
-                            <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
-                                <button style={{ margin: "10px" }} onClick={this.closeModalOk}>Ok</button>
-                                <button style={{ margin: "10px" }} onClick={this.closeModalCancel}>Cancel</button>
-                            </div>
-                        </div>
-                    </div>
-                </Modal>//*****
+                </div>            
             </div>
         )
     }
 }
-
-Modal.setAppElement('#root'); //*****
