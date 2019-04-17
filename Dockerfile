@@ -21,4 +21,4 @@ ENV PORT 3000
 EXPOSE 3000
 EXPOSE 30258
 CMD ["npm", "build-client"]
-CMD ["npm", "start"]
+CMD ["npm", "build-server"]

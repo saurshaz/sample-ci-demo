@@ -14,8 +14,8 @@ const localConfig = require('./config/local.json');
 const path = require('path');
 const axios = require('axios');
 
-const SERVER = 'http://10.64.18.39:30258';
-// const SERVER = 'http://119.81.79.228:30258';
+// const SERVER = 'http://10.64.18.39:30258';
+const SERVER = 'http://119.81.79.228:30258';
 
 const logger = log4js.getLogger(appName);
 logger.level = process.env.LOG_LEVEL || 'info'
