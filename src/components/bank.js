@@ -68,6 +68,9 @@ export default class Bank extends React.Component {
     }
 
     closeModal() {
+        ibmmfpfanalytics.addEvent({ 'ICICI-Demo-Logging out': 'Logout' });
+        ibmmfpfanalytics.send();
+
         console.log("Model Close");
         this.setState({ modalIsOpen: false });
     }
@@ -124,16 +127,16 @@ export default class Bank extends React.Component {
         axios.post('/saveTransaction', data).then(response => {
             console.log("saveTransaction", response);
 
+            this.setState({ modalIsOpen: false });
+            ibmmfpfanalytics.addEvent({ 'ICICI-Demo-Model Closed, Logging out': 'Logout' });
+            ibmmfpfanalytics.send();
+
             window.location = "/";
             this.props.logOut();
         }).catch(error => {
             this.setState({ loginDisabled: false, "error": "Unable to save transaction" })
             console.log("ERROR", error);
         });
-
-        ibmmfpfanalytics.addEvent({ 'ICICI-Demo': 'Model Closed' });
-
-        this.setState({ modalIsOpen: false });
     }
 
     closeModalCancel() {
@@ -141,8 +144,8 @@ export default class Bank extends React.Component {
         this.setState({ modalIsOpen: false });
 
         window.location = "/";
-        this.props.logOut();    }
-
+        this.props.logOut();
+    }
 
     createRequestPacket(accountFromTransfer, accountToTransfer) {
         const data = {
@@ -158,7 +161,6 @@ export default class Bank extends React.Component {
         }
 
         return data;
-
     }
 
     mergeOwnICICAccountsFromSession() {

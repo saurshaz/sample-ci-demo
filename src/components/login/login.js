@@ -1,5 +1,6 @@
 import React from "react";
 import * as axios from "axios";
+import ibmmfpfanalytics from "ibm-mfp-web-sdk/lib/analytics/ibmmfpfanalytics";
 
 import iciciLogo from "./../../images/logo-new.png";
 
@@ -44,6 +45,9 @@ export default class Login extends React.Component {
         }
 
         this.setState({ "loginDisabled": true });
+
+        ibmmfpfanalytics.addEvent({ 'ICICI-Demo - Login Initiated': 'Log in' });
+        ibmmfpfanalytics.send();
 
         axios.post('/test', {}).then(response => {
             console.log("test", response);
@@ -139,6 +143,9 @@ export default class Login extends React.Component {
                             // })
                             // ========================================================================================================
 
+                            ibmmfpfanalytics.addEvent({ 'ICICI-Demo - Login Successfull': 'Log in' });
+                            ibmmfpfanalytics.send();                
+
                             this.props.logIn();
                         }
                     }).catch(error => {
@@ -209,7 +216,7 @@ export default class Login extends React.Component {
                             </span>
                         </div>
                     </form>
-                </div>            
+                </div>
             </div>
         )
     }

@@ -8,14 +8,18 @@
 const appName = require('./../package').name;
 const http = require('http');
 const express = require('express');
-var bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 const log4js = require('log4js');
 const localConfig = require('./config/local.json');
 const path = require('path');
 const axios = require('axios');
+const request = require('request');
+
 
 // const SERVER = 'http://10.64.18.39:30258';
-const SERVER = 'http://119.81.79.228:30258';
+const SERVER = 'http://119.81.79.228:30258'; // For Production.
+const MFP_SERVER = SERVER;
+// const MFP_SERVER = 'http://localhost:9080';
 
 const logger = log4js.getLogger(appName);
 logger.level = process.env.LOG_LEVEL || 'info'
@@ -27,6 +31,8 @@ console.log(publicPath);
 
 app.use(express.static(publicPath));
 app.use(bodyParser.json());
+
+const port = process.env.PORT || localConfig.port;
 
 app.use(log4js.connectLogger(logger, { level: logger.level }));
 const serviceManager = require('./services/service-manager');
@@ -41,6 +47,49 @@ app.post('/test', function (req, res) {
 
   res.send("Test");
 });
+
+// Reverse proxy, pipes the requests to/from MobileFirst Server
+app.use('/mfp/*', function (req, res) {
+  var url = MFP_SERVER + req.originalUrl;
+
+  console.log('::: server.js ::: Passing request to URL: ' + url);
+  req.pipe(request[req.method.toLowerCase()](url)).pipe(res);
+});
+
+// app.post('/analytics-customdata', function (req, res) {
+//   const headers = {
+//     'Content-Type': 'application/json',
+//     'Accept': 'application/json',
+//     'x-mfp-analytics-api-key': 'TestIndex',
+//     'Authorization': 'Basic YWRtaW46YWRtaW4='
+//   };
+
+//   // var params = '?params=["' + req.body.params.name + '","' + req.body.params.passwd + '"]';
+//   var params = {
+//     "customDataMap": { "Context": "ICICI-Demo - Test", "value": "Test" },
+//     "serverIpAddress": "10.10.10.1",
+//     "timestamp": "2019-04 - 19T21: 50: 32.371Z",
+//     "timezone": "60",
+//     "appVersion": "1.0.1",
+//     "appName": "ICICI Demo",
+//     "appVersionCode": 1,
+//     "appID": "com.demo.icicibank",
+//     "deviceOSversion": "",
+//     "deviceModel": "",
+//     "deviceBrand": "",
+//     "deviceOS": "",
+//     "deviceID": ""
+//   }
+
+//   console.log("analytics-service", `${MFP_SERVER}/analytics/rest/customdata`);
+
+//   axios.post(`${MFP_SERVER}/analytics-service/rest/customdata`, params, { headers: headers }
+//   ).then(function (response) {
+//     res.send(response.data);
+//   }).catch(function (error) {
+//     res.send(error);
+//   });
+// });
 
 app.post('/login', function (req, res) {
   // res.send({
@@ -213,7 +262,24 @@ app.post('/saveTransaction', function (req, res) {
     'Content-Type': 'application/json'
   };
 
-  axios.get(`${SERVER}/mfp/api/adapters/ICICIAccountAdapter/saveTransaction`, req.body, { headers: headers })
+  const transaction = {
+    "userId": req.body.userId,
+    "fromAccount": req.body.fromAccount,
+    "toAccount": req.body.toAccount,
+    "toAccountType": req.body.toAccountType,
+    "fromAccountType": req.body.fromAccountType,
+    "beneficiaryName": req.body.beneficiaryName,
+    "transferAmount": req.body.transferAmount,
+    "remarks": req.body.remarks
+  }
+
+  var params = "?params=['" + JSON.stringify(transaction) + "','" + req.body.header + "']";
+  var url = encodeURI(SERVER + "/mfp/api/adapters/ICICIAccountAdapter/saveTransaction" + params);
+  console.log("----------------------", encodeURI(url));
+
+  // axios.get(`${SERVER}/mfp/api/adapters/ICICIAccountAdapter/saveTransaction`, params, { headers: headers })
+  // axios.get(`${SERVER}/mfp/api/adapters/ICICIAccountAdapter/saveTransaction${encodeURI(params)}`)
+  axios.get(url, {}, { headers: headers })
     .then(function (response) {
       res.send(response.data);
     }).catch(function (error) {
@@ -247,7 +313,6 @@ app.get("/*", (req, res) => {
 })
 // Add your code here
 
-const port = process.env.PORT || localConfig.port;
 server.listen(port, function () {
   logger.info(`icicidemo listening on http://localhost:${port}/appmetrics-dash`);
   logger.info(`icicidemo listening on http://localhost:${port}`);
