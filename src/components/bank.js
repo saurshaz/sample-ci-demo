@@ -68,7 +68,7 @@ export default class Bank extends React.Component {
     }
 
     closeModal() {
-        ibmmfpfanalytics.addEvent({ 'ICICI-Demo-Logging out': 'Logout' });
+        ibmmfpfanalytics.addEvent({ 'buttonClick-WEB': 'Logout' });
         ibmmfpfanalytics.send();
 
         console.log("Model Close");
@@ -128,7 +128,9 @@ export default class Bank extends React.Component {
             console.log("saveTransaction", response);
 
             this.setState({ modalIsOpen: false });
-            ibmmfpfanalytics.addEvent({ 'ICICI-Demo-Model Closed, Logging out': 'Logout' });
+            // ibmmfpfanalytics.addEvent({ 'ICICI-Demo-Model Closed, Logging out': 'Logout' });
+            ibmmfpfanalytics.addEvent({ "fromPage-WEB": "Model" });
+            ibmmfpfanalytics.addEvent({ "toPage-WEB": "Login" });
             ibmmfpfanalytics.send();
 
             window.location = "/";

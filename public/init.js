@@ -20,7 +20,7 @@ require(['ibmmfpfanalytics', 'mfp'], function (ibmmfpfanalytics, WL) {
 
             console.log("Analytics for applicaiton: com.data.icicibank, intialized.");
 
-            ibmmfpfanalytics.addEvent({ 'ICICI-Demo-Analytics for applicaiton: com.data.icicibank, intialized.': 'Analytics for applicaiton: com.data.icicibank, intialized.' });
+            ibmmfpfanalytics.addEvent({ 'analyticsInitalized': 'Analytics for applicaiton: com.data.icicibank, intialized.' });
             ibmmfpfanalytics.send();
         });
 });

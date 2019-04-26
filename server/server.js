@@ -18,8 +18,9 @@ const request = require('request');
 
 // const SERVER = 'http://10.64.18.39:30258';
 const SERVER = 'http://119.81.79.228:30258'; // For Production.
-const MFP_SERVER = SERVER;
+// const MFP_SERVER = SERVER;
 // const MFP_SERVER = 'http://localhost:9080';
+const MFP_SERVER = 'http://10.64.18.39:32094';
 
 const logger = log4js.getLogger(appName);
 logger.level = process.env.LOG_LEVEL || 'info'
@@ -53,7 +54,11 @@ app.use('/mfp/*', function (req, res) {
   var url = MFP_SERVER + req.originalUrl;
 
   console.log('::: server.js ::: Passing request to URL: ' + url);
-  req.pipe(request[req.method.toLowerCase()](url)).pipe(res);
+  try {
+    req.pipe(request[req.method.toLowerCase()](url)).pipe(res);
+  } catch (e) {
+    console.log("Error during proxy call to mfp ", e);
+  }
 });
 
 // app.post('/analytics-customdata', function (req, res) {
@@ -279,6 +284,7 @@ app.post('/saveTransaction', function (req, res) {
 
   // axios.get(`${SERVER}/mfp/api/adapters/ICICIAccountAdapter/saveTransaction`, params, { headers: headers })
   // axios.get(`${SERVER}/mfp/api/adapters/ICICIAccountAdapter/saveTransaction${encodeURI(params)}`)
+
   axios.get(url, {}, { headers: headers })
     .then(function (response) {
       res.send(response.data);

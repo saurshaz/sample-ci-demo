@@ -46,7 +46,7 @@ export default class Login extends React.Component {
 
         this.setState({ "loginDisabled": true });
 
-        ibmmfpfanalytics.addEvent({ 'ICICI-Demo - Login Initiated': 'Log in' });
+        ibmmfpfanalytics.addEvent({ 'buttonClick-WEB': 'Log in' });
         ibmmfpfanalytics.send();
 
         axios.post('/test', {}).then(response => {
@@ -143,8 +143,8 @@ export default class Login extends React.Component {
                             // })
                             // ========================================================================================================
 
-                            ibmmfpfanalytics.addEvent({ 'ICICI-Demo - Login Successfull': 'Log in' });
-                            ibmmfpfanalytics.send();                
+                            ibmmfpfanalytics.addEvent({ 'buttonClick-WEB': 'Log in Successful' });
+                            ibmmfpfanalytics.send();
 
                             this.props.logIn();
                         }
