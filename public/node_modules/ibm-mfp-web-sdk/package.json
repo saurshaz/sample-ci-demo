@@ -1,0 +1,55 @@
+{
+  "_from": "ibm-mfp-web-sdk@^8.0.2019031118",
+  "_id": "ibm-mfp-web-sdk@8.0.2019031118",
+  "_inBundle": false,
+  "_integrity": "sha512-OZHIqTtb8L3fC7yd0KA/lZzFu/xKiYK3xxbbYL9iqm43IwObhUwssi9MIyRzvStUvnC4+4sdB1mYs5lanDM3Ww==",
+  "_location": "/ibm-mfp-web-sdk",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "ibm-mfp-web-sdk@^8.0.2019031118",
+    "name": "ibm-mfp-web-sdk",
+    "escapedName": "ibm-mfp-web-sdk",
+    "rawSpec": "^8.0.2019031118",
+    "saveSpec": null,
+    "fetchSpec": "^8.0.2019031118"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/ibm-mfp-web-sdk/-/ibm-mfp-web-sdk-8.0.2019031118.tgz",
+  "_shasum": "386cfeacdac01b88af7fbdab6aa30a71d96de821",
+  "_spec": "ibm-mfp-web-sdk@^8.0.2019031118",
+  "_where": "C:\\Code\\icici-demo",
+  "author": {
+    "name": "IBM"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "jssha": "2.2.0",
+    "promiz": "1.0.5",
+    "sjcl": "1.0.3"
+  },
+  "deprecated": false,
+  "description": "IBM MobileFirst Platform Foundation Web Environment SDK",
+  "homepage": "https://git.ng.bluemix.net/ibmmfpf/ibm-mfp-web-sdk",
+  "keywords": [
+    "ibm",
+    "worklight",
+    "mobilefirst",
+    "mfp",
+    "web sdk",
+    "cordova-web"
+  ],
+  "license": "SEE LICENSE IN LICENSE.TXT",
+  "main": "ibmmfpf.js",
+  "name": "ibm-mfp-web-sdk",
+  "repository": {
+    "type": "git",
+    "url": "https://git.ng.bluemix.net/ibmmfpf/ibm-mfp-web-sdk/tree/master"
+  },
+  "typings": "./lib/typings/ibmmfpf.d.ts",
+  "version": "8.0.2019031118"
+}
