@@ -302,11 +302,11 @@ li {
 }
 
 .bg-orange {
-    background-color: #f5821f;
+    background-color: #193E6C;
 }
 
-header {
-    background-color: #f5821f;
+header {    
+    background-color: #193E6C;
     width: 100%;
     margin: 0 auto;
     display: block;
@@ -314,9 +314,8 @@ header {
 }
 
 .nav-header .middleContainer.updated-header {
-    width: 100%;
-    max-width: 1180px;
-    height: 40px;
+    width: 1280px;
+    height: 60px;
 }
 
 .nav-header .middleContainer {
@@ -397,4 +396,9 @@ img {
 .menu li a {
     text-decoration: none;
     color: white;
+    size: 16px;
+    height: 19px;
+    width: 66px;
+    font-size:13px;
+    font-family:Roboto Regular;
 }
