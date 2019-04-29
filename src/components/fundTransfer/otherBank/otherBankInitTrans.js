@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-// import * as axios from "axios";
+// import { axiosInstance as axios } from "../../../lib";
 
 import AccountSelection from "../accountSelection";
 import Tabs from "./tabs";

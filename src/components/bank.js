@@ -1,7 +1,9 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter as Router, withRouter } from "react-router-dom";
 import Modal from 'react-modal';
-import * as axios from "axios";
+import { axiosInstance as axios } from "../lib";
+
+
 import ibmmfpfanalytics from "ibm-mfp-web-sdk/lib/analytics/ibmmfpfanalytics";
 
 import logo from "../images/logo-new.png";

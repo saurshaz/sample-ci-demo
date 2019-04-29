@@ -1,5 +1,5 @@
 import React from "react";
-import * as axios from "axios";
+import { axiosInstance as axios } from "../../lib";
 import ibmmfpfanalytics from "ibm-mfp-web-sdk/lib/analytics/ibmmfpfanalytics";
 
 import iciciLogo from "./../../images/logo-new.png";

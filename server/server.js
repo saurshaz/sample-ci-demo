@@ -27,8 +27,16 @@ logger.level = process.env.LOG_LEVEL || 'info'
 const app = express();
 const server = http.createServer(app);
 
+
 var publicPath = path.join(__dirname, "../build");
 console.log(publicPath);
+
+//CORS middleware
+app.use('*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.use(express.static(publicPath));
 app.use(bodyParser.json());
