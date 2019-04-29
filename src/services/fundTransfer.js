@@ -1,4 +1,5 @@
-import * as axios from "axios";
+
+import { axiosInstance as axios } from "../lib";
 
 export default class FundTransfer {
     doFundTransfer(userId, fromAcct, toAccnt, trfAmnt, header) {
