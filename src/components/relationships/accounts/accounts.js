@@ -32,22 +32,22 @@ class Account extends React.Component {
                 <div className="row">
                     <div className="col-12">
                         <div className="text-left">
-                            <span style={{ font: "Helvetica Neue", fontWeight: "medium", fontSize: "18px", color: "#000000" }}>My Relationships</span>
+                            <span style={{ font: "Roboto,Medium", fontWeight: "bold", fontSize: "20px", color: "#000000" }}>My Relationships</span>
                         </div>
                     </div>
                     <Tabs></Tabs>
-                    <div className="rightPanel" style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "85.67%", marginLeft: "-1.5em" }}>
-                        <div style={{ border: '1px solid #707070', boxShadow: "#000000", backgroundColor: "#F7F7F4", paddingTop: "0px", paddingLeft: "0px", paddingBottom: "50px" }}>
+                    <div className="rightPanel" style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "85.67%", marginLeft: "-0.5em" }}>
+                        <div style={{ border: '1px solid #707070', boxShadow: "#000000", backgroundColor: "#F7F7F4", paddingTop: "0px", paddingLeft: "0px" }}>
                             {
                                 this.state.savingsAccounts ? this.state.savingsAccounts.map((account) => {
                                     return <Savings account={account}></Savings>
                                 }) : null
                             }
                             {
-                                this.state.currentAccounts ? this.state.currentAccounts.map((account) => {
-                                    return <Current account={account}></Current>
-                                }) : null
-                            }
+                                   this.state.savingsAccounts ? this.state.savingsAccounts.map((account) => {
+                                   return <Current account={account}></Current>
+                               }) : null
+                           }
                         </div>
                     </div>
                 </div>

@@ -54,14 +54,14 @@
 .accountSelect {
   width: 400px;
   background-color: #F8F8F8;
-  font: "Roboto";
-  font-size: 15px;
+  font: "Roboto,Medium";
+  font-size: 20px;
   padding-top: 5px;
   padding-bottom: 10px;
   padding-right: 30px;
   padding-left: 0px;
   display: block;
-  color: #000000;
+  color: #A5A5A5;
   border: none;
   border-bottom: 1.5px solid #193E6C;
 }

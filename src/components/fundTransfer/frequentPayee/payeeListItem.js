@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 
 import radiobutton_normal from "../../../images/icn_radiobutton_normal.png";
 import radiobutton_selected from "../../../images/icn_radiobutton_selected.png";
+import HDFC from "../../../images/HDFC.png"
 
 class PayeeListItem extends React.Component {
     constructor(props) {
@@ -41,8 +42,8 @@ class PayeeListItem extends React.Component {
                 <td style={{ paddingTop: "10px", paddingLeft: "40px" }}>
                     <img src={this.props.account.selectedForTrans == true ? radiobutton_selected : radiobutton_normal}></img>
                 </td>
-                <td style={{ font: "Roboto", color: "#193E6C", fontSize: "14px" }}>{this.props.account.accountOwner}</td>
-                <td style={{ font: "Roboto", color: "#000000", fontSize: "14px" }}>{this.props.account.bank}</td>
+                <td style={{ font: "Roboto,Medium", color: "#476589", fontSize: "14px", fontWeight: "bold" }}>{this.props.account.accountOwner}</td>
+                <td style={{top:"10px"}}><img src={HDFC} width="20%"></img></td>
                 <td style={{ font: "Roboto", color: "#000000", fontSize: "14px" }}>{this.props.account.accountNumber}</td>
             </tr>
         )

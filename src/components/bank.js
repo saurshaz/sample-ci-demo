@@ -249,7 +249,7 @@ export default class Bank extends React.Component {
                 <div className="container" style={{ marginTop: "10px" }}>
                     <header className="nav-header">
                         <div className="middleContainer updated-header clearfix">
-                            <ul className="menu">
+                            <ul className="menu" style={{height:"60px"}}>
                                 <li>
                                     <a className="dropdown-toggle" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
@@ -293,7 +293,7 @@ export default class Bank extends React.Component {
                 <div className="container" style={{ marginTop: "30px" }}>
                     <div className="row">
                         <div className="col-sm-3">
-                            <div className="sidebar" style={{ maxWidth: "100%", marginTop: "-30px" }}>
+                            <div className="sidebar" style={{ maxWidth: "100%"}}>
                                 {/* <img src={sidebar} width="100%" alt="" srcSet=""></img> */}
                                 <img src={sidebarTop} width="100%"></img>
                                 <LoggedInUser></LoggedInUser>
