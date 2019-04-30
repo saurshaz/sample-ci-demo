@@ -32,7 +32,7 @@ class Account extends React.Component {
                 <div className="row">
                     <div className="col-12">
                         <div className="text-left">
-                            <span style={{ font: "Roboto,Medium", fontWeight: "bold", fontSize: "20px", color: "#000000" }}>My Relationships</span>
+                        <span style={{ font: "Roboto,Medium", fontWeight: "bold", fontSize: "20px", color: "#000000" }}>My Relationships</span>
                         </div>
                     </div>
                     <Tabs></Tabs>
@@ -44,10 +44,10 @@ class Account extends React.Component {
                                 }) : null
                             }
                             {
-                                   this.state.savingsAccounts ? this.state.savingsAccounts.map((account) => {
-                                   return <Current account={account}></Current>
-                               }) : null
-                           }
+                                this.state.savingsAccounts ? this.state.savingsAccounts.map((account) => {
+                                    return <Current account={account}></Current>
+                                }) : null
+                            }
                         </div>
                     </div>
                 </div>

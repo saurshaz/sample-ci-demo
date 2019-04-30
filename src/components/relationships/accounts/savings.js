@@ -32,7 +32,7 @@ class Savings extends React.Component {
         return (
             <div style={{ border: '1px solid #707070', boxShadow: "#000000", backgroundColor: "#FFFFFF", paddingTop: "20px", paddingLeft: "40px", paddingBottom: "30px",height:"207px" }}>
                 <div style={{display:"flex",flexDirection:"row"}}>
-                    <div style={{ font: "Roboto, Regular", color: "#000000", fontSize: "14px", flex:"0 0 61%" }} className="m10">
+                    <div style={{ font: "Roboto, Regular", color: "#000000", fontSize: "14px", flex:"0 0 61%", font: "Roboto, Regular", color: "#000000", fontSize: "14px" }} className="m10">
                         Savings Account {this.props.account.accountNumber}
                     </div>
                     <div style={{ font: "Roboto, Regular", color: "#000000", fontSize: "12px" }} className="m10">
@@ -43,7 +43,7 @@ class Savings extends React.Component {
                     {/* &#x20b9; {this.props.account.currentBalance} */}
                     &#x20b9; {Number(this.props.account.currentBalance || 0).toLocaleString('en-IN')}
                 </div>
-                {/* <div style={{ font: "Roboto, Regular", color: "#000000", fontSize: "14px" }} className="m10">
+                {/* <div style={{ font: "Roboto, Regular", color: "#193E6C", fontSize: "14px" }} className="m10">
                     Current withdrawal Balance as on {this.formatDate()}
                 </div> */}
                 <div style={{ display: 'flex', flexDirection: 'row' }} >

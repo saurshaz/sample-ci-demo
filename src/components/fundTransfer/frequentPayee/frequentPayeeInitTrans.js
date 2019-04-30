@@ -119,8 +119,8 @@ class FrequentPayeeInitTrans extends React.Component {
                         </div>
                     </div>
                     <Tabs></Tabs>
-                    <div className="rightPanel" style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "85.66%", marginLeft: "-2.4em" }}>
-                        <div style={{ border: '1px solid #707070', backgroundColor: "#F8F8F8", paddingTop: "20px", paddingLeft: "40px", paddingBottom: "20px" }}>
+                    <div className="rightPanel" style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "85.66%", marginLeft: "-1.4em" }}>
+                        <div style={{ border: '1px solid #707070', background:"white", paddingTop: "20px", paddingLeft: "40px", paddingBottom: "20px" }}>
                             <div className="backBtn">
                                 <span onClick={this.goBack}>&larr; Back</span>
                             </div>
@@ -129,7 +129,7 @@ class FrequentPayeeInitTrans extends React.Component {
                             </div>
                             <AccountSelection></AccountSelection>
                         </div>
-                        <div style={{ border: '1px solid #B9B9B9', boxShadow: "#000000", backgroundColor: "#FFFFFF", paddingTop: "20px", paddingLeft: "40px", paddingBottom: "30px" }}>
+                        <div style={{ border: '1px solid #B9B9B9', boxShadow: "#000000", background: "#F8F8F8", paddingTop: "20px", paddingLeft: "40px", paddingBottom: "30px" }}>
                             <div style={{ display: 'flex', flexDirection: 'row' }} className="m50">
                                 <div style={{ flex: "0 0 35%", marginRight: "5%" }}>
                                     <div style={{ font: "Roboto", color: "#193E6C", fontSize: "12px" }} className="m10">
@@ -169,7 +169,7 @@ class FrequentPayeeInitTrans extends React.Component {
                                 </div>
                             </div>
                             <div class="m-10">
-                                <button onClick={this.cancelTrans} className="btn btn-primary" style={{ border: "1px solid #D9D9D9", background: "#D9D9D9", font: "Roboto", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "#727374", marginRight: "20px" }}>CANCEL</button>
+                                <button onClick={this.cancelTrans} className="btn btn-primary" style={{ border: "1px solid #F18324", background: "#EFEFEF", font: "Roboto", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "#F18324", marginRight: "20px" }}>CANCEL</button>
                                 <button onClick={this.goForward} className="btn btn-primary" style={{ border: "1px solid #F18324", background: "#F18324", font: "Roboto", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "##FFFFFF" }}>PROCEED TO PAY</button>
                             </div>
                             <div style={{ font: "Roboto", color: "#CB4919", fontSize: "10px", textAlign: "right", paddingRight: "20px" }}>

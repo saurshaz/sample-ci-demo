@@ -44,7 +44,8 @@ class PayeeListItem extends React.Component {
                 </td>
                 <td style={{ font: "Roboto,Medium", color: "#476589", fontSize: "14px", fontWeight: "bold" }}>{this.props.account.accountOwner}</td>
                 <td style={{top:"10px"}}><img src={HDFC} width="20%"></img></td>
-                <td style={{ font: "Roboto", color: "#000000", fontSize: "14px" }}>{this.props.account.accountNumber}</td>
+                {/* <td style={{ font: "Roboto", color: "#000000", fontSize: "14px" }}>{this.props.account.bank}</td> */}
+                <td style={{ font: "Roboto,Medium", color: "#000000", fontSize: "14px",fontWeight:"bold" }}>{this.props.account.accountNumber}</td>
             </tr>
         )
     }
