@@ -31,14 +31,14 @@ class Savings extends React.Component {
     render() {
         return (
             <div style={{ border: '1px solid #707070', boxShadow: "#000000", backgroundColor: "#FFFFFF", paddingTop: "20px", paddingLeft: "20px", paddingBottom: "30px" }}>
-                <div style={{ font: "Roboto", color: "#000000", fontSize: "14px" }} className="m10">
+                <div style={{ font: "Roboto, Regular", color: "#000000", fontSize: "14px" }} className="m10">
                     Savings Account {this.props.account.accountNumber}
                 </div>
-                <div style={{ font: "Roboto", color: "#193E6C", fontWeight: "medium", fontSize: "24px" }}>
+                <div style={{ font: "Roboto, Regular", color: "#193E6C", fontWeight: "bold", fontSize: "40px" }}>
                     {/* &#x20b9; {this.props.account.currentBalance} */}
                     &#x20b9; {Number(this.props.account.currentBalance || 0).toLocaleString('en-IN')}
                 </div>
-                <div style={{ font: "Helvetica Neue", color: "#193E6C", fontSize: "10px" }} className="m30">
+                <div style={{ font: "Roboto, Regular", color: "#193E6C", fontSize: "10px" }} className="m30">
                     Current withdrawal Balance as on {this.formatDate()}
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'row' }} >

@@ -293,9 +293,9 @@ export default class Bank extends React.Component {
                 <div className="container" style={{ marginTop: "30px" }}>
                     <div className="row">
                         <div className="col-sm-3">
-                            <div className="sidebar" style={{ maxWidth: "100%", marginTop: "-30px" }}>
+                            <div className="sidebar" style={{ maxWidth: "100%", marginTop: "10px" }}>
                                 {/* <img src={sidebar} width="100%" alt="" srcSet=""></img> */}
-                                <img src={sidebarTop} width="100%"></img>
+                                <img src={sidebarTop} width="100%" ></img>
                                 <LoggedInUser></LoggedInUser>
                                 <img src={sidebarMiddle} width="100%"></img>
                                 <img src={sidebarBottom} width="100%"></img>

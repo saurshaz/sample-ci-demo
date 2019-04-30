@@ -138,7 +138,7 @@ class OtherBankInitTrans extends React.Component {
                                         {this.state.accountToTransfer.accountOwner}
                                     </div>
                                     <div style={{ font: "Roboto", color: "#193E6C", fontSize: "12px" }} className="m10">
-                                        Enter the Amount
+                                        Enter the Amount765
                                 </div>
                                     <div style={{ paddingBottom: "10px", borderBottom: '1.5px solid #193E6C', font: "Roboto", color: "#000000", fontSize: "14px" }}>
                                         <input style={{ border: "none" }} onChange={this.handleTransAmtChange} value={this.state.accountToTransfer.transAmt}></input>
@@ -168,8 +168,8 @@ class OtherBankInitTrans extends React.Component {
                                 </div>
                             </div>
                             <div class="m-10">
-                                <button onClick={this.cancelTrans} className="btn btn-primary" style={{ border: "1px solid #D9D9D9", background: "#D9D9D9", font: "Roboto", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "#727374", marginRight: "20px" }}>CANCEL</button>
-                                <button onClick={this.goForward} className="btn btn-primary" style={{ border: "1px solid #F18324", background: "#F18324", font: "Roboto", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "##FFFFFF" }}>PROCEED TO PAY</button>
+                                <button onClick={this.cancelTrans} className="btn btn-primary" style={{ border: "1px solid #D9D9D9", background: "#D9D9D9", font: "Roboto", fontWeight: "medium", fontSize: "12px", align:"center",borderRadius: "10px", color: "#F18324", marginRight: "20px" }}>CANCEL</button>
+                                <button onClick={this.goForward} className="btn btn-primary" style={{ border: "1px solid #F18324", background: "#F18324", font: "Roboto", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "#FFFFFF" }}>PROCEED TO PAY</button>
                             </div>
                             <div style={{ font: "Roboto", color: "#CB4919", fontSize: "10px", textAlign: "right", paddingRight: "20px" }}>
                                 <span>More than ₹1 lakh transaction would take 4 hours to complete</span>

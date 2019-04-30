@@ -53,15 +53,15 @@
 
 .accountSelect {
   width: 400px;
-  background-color: #F8F8F8;
-  font: "Roboto";
-  font-size: 15px;
+  /* background-color: #F8F8F8; */
+  font: "Roboto,Medium";
+  font-size: 20px;
   padding-top: 5px;
   padding-bottom: 10px;
   padding-right: 30px;
   padding-left: 0px;
   display: block;
-  color: #000000;
+  color: #A5A5A5;
   border: none;
   border-bottom: 1.5px solid #193E6C;
 }
@@ -97,11 +97,13 @@ select:focus {
 
 .backBtn {
   font: "Helvetica";
-  color: #962824;
+  color: #F18324;
   font-weight: bold;
   font-size: 12px;
   padding-bottom: 15px;
   cursor: pointer;
+  float:right;
+  margin-right:5%;
 }
 
 .loginrow {
@@ -154,6 +156,7 @@ select:focus {
   -webkit-flex: 0 0 86.333333%;
   flex: 0 0 86.333333%;
   max-width: 86.333333%;
+  background-color: white;
 }
 
 .m5 {
@@ -169,7 +172,7 @@ select:focus {
 }
 
 .m30 {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .m50 {

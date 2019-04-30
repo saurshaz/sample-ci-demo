@@ -106,7 +106,7 @@ class FrequentPayeeSuccessTrans extends React.Component {
                             </div>
 
                         </div>
-                        <div style={{ paddingTop: "20px", paddingLeft: "40px", paddingBottom: "30px" }}>
+                        <div style={{ paddingTop: "20px", paddingLeft: "40px", paddingBottom: "30px",background:"#F8F8F8" }}>
                             <div style={{ display: 'flex', flexDirection: 'row' }} className="m20">
                                 <div style={{ flex: "0 0 30%", marginRight: "5%" }}>
                                     <div style={{ font: "Roboto", color: "#193E6C", fontSize: "12px" }} className="m10">
@@ -152,8 +152,8 @@ class FrequentPayeeSuccessTrans extends React.Component {
                                 </div>
                             </div>
                             <div style={{ display: 'flex', flexDirection: 'row', alignItems: "center", justifyContent: "center" }} className="m20">
-                                <button onClick={this.makeAnotherTranscation} className="btn btn-primary" style={{ width: "250px", border: "1px solid #D9D9D9", background: "#D9D9D9", font: "Roboto", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "#727374", marginRight: "20px" }}>MAKE ANOTHER TRANSACTION</button>
-                                <button onClick={this.done} className="btn btn-primary" style={{ border: "1px solid #F18324", background: "#F18324", font: "Roboto", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "##FFFFFF" }}>DONE</button>
+                                <button onClick={this.makeAnotherTranscation} className="btn btn-primary" style={{ width: "250px", border: "1px solid #F18324", font: "Roboto",background:"#F8F8F8", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "#F18324", marginRight: "20px" }}>MAKE ANOTHER TRANSACTION</button>
+                                <button onClick={this.done} className="btn btn-primary" style={{ border: "1px solid #F18324", background: "#F18324", font: "Roboto", fontWeight: "medium", fontSize: "14px", borderRadius: "10px", color: "#FFFFFF" }}>DONE</button>
                             </div>
                         </div>
                     </div>
