@@ -30,19 +30,24 @@ class Current extends React.Component {
 
     render() {
         return (
-            <div style={{ border: '1px solid #707070', boxShadow: "#000000", backgroundColor: "#FFFFFF", paddingTop: "20px", paddingLeft: "20px", paddingBottom: "30px" }}>
-                <div style={{ font: "Roboto", color: "#000000", fontSize: "14px" }} className="m10">
-                    Current Account {this.props.account.accountNumber}
+            <div style={{ border: '1px solid #707070', boxShadow: "#000000", backgroundColor: "#F5F5F5", paddingTop: "20px", paddingLeft: "40px", paddingBottom: "30px", height: "310px" }}>
+                <div style= {{display:"flex",flexDirection:"row"}}>
+                    <div style={{ font: "Roboto, Regular", color: "#000000", fontSize: "14px",flex:"0 0 61%" }} className="m10">
+                        Current Account {this.props.account.accountNumber}
+                    </div>
+                    <div style={{ font: "Roboto, Regular", color: "#000000", fontSize: "12px" }} className="m10">
+                        Current withdrawal Balance as on {this.formatDate()}
+                    </div>
                 </div>
-                <div style={{ font: "Roboto, Regular", color: "#193E6C", fontWeight: "bold", fontSize: "40px" }}>
+                <div style={{ font: "Roboto, Regular", color: "#193E6C", fontWeight: "bold", fontSize: "40px",paddingBottom:"18px" }}>
                     {/* &#x20b9; {this.props.account.currentBalance} */}
                     &#x20b9; {Number(this.props.account.currentBalance | 0).toLocaleString('en-IN')}
                 </div>
-                <div style={{ font: "Roboto, Regular", color: "#193E6C", fontSize: "10px" }} className="m30">
+                {/* <div style={{ font: "Roboto, Regular", color: "#000000", fontSize: "14px" }} className="m10">
                     Current withdrawal Balance as on {this.formatDate()}
-                </div>
+                </div> */}
                 <div style={{ display: 'flex', flexDirection: 'row' }} >
-                    <div style={{ flex: "0 0 18%", marginRight: "5%" }}>
+                    <div style={{ flex: "0 0 19%", marginRight: "5%" }}>
                         <div>
                             <a onClick={this.transferFund} style={{ cursor: "pointer" }}>
                                 <img src={icn_transfeerfunds}></img>

@@ -13,7 +13,8 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
 }
 
 BODY {
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: roboto medium;
     height: 100%;
     margin: 0;
     padding: 0;
@@ -302,11 +303,11 @@ li {
 }
 
 .bg-orange {
-    background-color: #f5821f;
+    background-color: #193E6C;
 }
 
-header {
-    background-color: #f5821f;
+header {    
+    background-color: #193E6C;
     width: 100%;
     margin: 0 auto;
     display: block;
@@ -314,9 +315,8 @@ header {
 }
 
 .nav-header .middleContainer.updated-header {
-    width: 100%;
-    max-width: 1180px;
-    height: 40px;
+    width: 1280px;
+    height: 60px;
 }
 
 .nav-header .middleContainer {
@@ -357,7 +357,7 @@ header .menu {
 
 header .menu li {
     /* width: 170px; */
-    float: left;
+    /* float: left; */
     display: inline-block;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 11px;
@@ -368,6 +368,7 @@ header .menu li {
     margin-top: 0;
     padding-left: 5px;
     text-align: center;
+    flex: 1;
 }
 
 .arrowDown {
@@ -397,4 +398,9 @@ img {
 .menu li a {
     text-decoration: none;
     color: white;
+    size: 16px;
+    height: 19px;
+    width: 66px;
+    font-size:13px;
+    font-family:Roboto Regular;
 }

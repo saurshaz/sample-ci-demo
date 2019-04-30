@@ -1,23 +1,25 @@
 .tabItem {
-    width: 100px;
-    background-color: #F8F8F8;
+    background-color: white;
     border: 1px solid #707070;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
+    font: Helvetica Neue;
+    color: #1F1F1F ;
+    font-size: 12px;
+    text-align: center;
+    width: 95px;
+}
+.tabItem :active  {
+    background-color: #193E6C;
+    color: #fff;
 }
 
-.active {
-    border-right: 3.5px solid #962824;
-}
+/* .active {
+    border-right: 3.5px solid #193E6C;
+} */
 
 .tabItem .mainText {
-    color: #962824;
-    text-align: center;
-    font: "Helvetica Neue";
-    font-weight: bold;
-    font-size: 12px
+    width: 95px;
+    height: 102px;
+    padding: 40px 0 0 0;
 }
 
 .tabItem .subText {
