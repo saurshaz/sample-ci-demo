@@ -9,7 +9,7 @@ import ibmmfpfanalytics from "ibm-mfp-web-sdk/lib/analytics/ibmmfpfanalytics";
 import logo from "../images/logo-new.png";
 import sidebarTop from "../images/sidebar-top.png"
 import sidebarMiddle from "../images/sidebar-middle.png"
-import sidebarBottom from "../images/sidebar-bottom.png"
+import sidebarBottom from "../images/sidebar-bottom.new.png"
 import bell from "../images/bell-32.png"
 
 import '../App.css';
