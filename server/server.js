@@ -20,7 +20,8 @@ const request = require('request');
 const SERVER = 'http://119.81.79.228:30258'; // For Production.
 // const MFP_SERVER = SERVER;
 // const MFP_SERVER = 'http://localhost:9080';
-const MFP_SERVER = 'http://10.64.18.39:32094';
+// const MFP_SERVER = 'http://10.64.18.39:32094'; // ICP
+const MFP_SERVER = 'http://159.122.237.221:30748'; // public-cloud
 
 const logger = log4js.getLogger(appName);
 logger.level = process.env.LOG_LEVEL || 'info'
