@@ -1,0 +1,177 @@
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+.App {
+  text-align: center;
+}
+
+.searchInput {
+  width: 400px;
+  background-color: #FFFFFF;
+  font: "Roboto";
+  font-size: 15px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  padding-right: 30px;
+  padding-left: 0px;
+  display: block;
+  color: #193E6C;
+  border: none;
+  border-bottom: 1.5px solid #193E6C;
+}
+
+.accountSelect {
+  width: 400px;
+  background-color: #F8F8F8;
+  font: "Roboto";
+  font-size: 15px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  padding-right: 30px;
+  padding-left: 0px;
+  display: block;
+  color: #000000;
+  border: none;
+  border-bottom: 1.5px solid #193E6C;
+}
+
+.accountSelect option {
+  background-color: #F8F8F8;
+  font: "Roboto";
+  font-size: 15px;
+  color: #000000;
+}
+
+/* *:focus {
+  outline: #757575;
+} */
+
+select:focus {
+  outline: 0;
+}
+
+.nav-link {
+  border: 1px solid lightgray;
+  background-color: lightgray;
+  margin: 5px;
+  height: 70px;
+  color: black;
+}
+
+.nav-link.active {
+  border: 1px solid gray;
+  background-color: gray;
+  color: black;
+}
+
+.backBtn {
+  font: "Helvetica";
+  color: #962824;
+  font-weight: bold;
+  font-size: 12px;
+  padding-bottom: 15px;
+  cursor: pointer;
+}
+
+.loginrow {
+  width: 420px;
+  clear: both;
+  margin-left: 10px;
+}
+
+.lock_image {
+  margin-top: 6px;
+  padding-left: 3px;
+  float: left;
+}
+
+.simpletext2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: none;
+  color: #000;
+  text-align: center;
+  margin-top: -30px;
+  margin-bottom: 30px;
+  padding: 2px;
+}
+
+/* .cancelButton {
+  border: 1px solid #D9D9D9;
+  background: #D9D9D9;
+  font: "Roboto";
+  font-weight: "medium";
+  font-size: 14px;
+  border-radius: 10px;
+  color: #727374;
+  margin-right: 20px;
+}
+
+.okButton {
+  border: 1px solid #F18324;
+  background: #F18324;
+  font: "Roboto";
+  font-weight: "medium";
+  font-size: 14px;
+  border-radius: 10px;
+  color: #FFFFFF;
+} */
+
+.rightPanel {
+  -webkit-flex: 0 0 86.333333%;
+  flex: 0 0 86.333333%;
+  max-width: 86.333333%;
+}
+
+.m5 {
+  margin-bottom: 5px;
+}
+
+.m10 {
+  margin-bottom: 10px;
+}
+
+.m20 {
+  margin-bottom: 20px;
+}
+
+.m30 {
+  margin-bottom: 30px;
+}
+
+.m50 {
+  margin-bottom: 50px;
+}

@@ -1,0 +1,400 @@
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, dialog, div, dl, dt, em, embed, fieldset, figcaption, figure, font, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, meter, nav, object, ol, output, p, pre, progress, q, rp, rt, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video, xmp {
+    border: 0;
+    margin: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    -webkit-padding-before: 0;
+    -webkit-padding-after: 0;
+    -webkit-padding-start: 0;
+    -webkit-padding-end: 0;
+    padding: 0;
+}
+
+BODY {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    border-bottom: #39454a 0 solid;
+    margin-bottom: 0;
+    height: auto !important;
+}
+
+header .header-main, #header .Loginheader-main {
+    width: 943px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.BlackButtonClass {
+    min-width: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #FFF;
+    border: 1px solid #353535;
+    height: 24px;
+    width: auto;
+    /* background: url(./images/BackgroundImage_BlackButton_LogOut.jpg) repeat-x top left #463f3f; */
+    padding: 4px 8px 0 8px;
+    float: left;
+    display: inline;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 1px;
+    margin-top: -7px;
+    margin-right: -13px;
+}
+
+.MaroonButtonClass {
+    min-width: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #FFF;
+    border: 1px solid #353535;
+    height: 18px;
+    width: auto;
+    /* background: url(./images/BackgroundImage_BlackButton_LogOut.jpg) repeat-x top left #962825; */
+    padding: 4px 8px 0 8px;
+    float: left;
+    display: inline;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 1px;
+    margin-top: -7px;
+    margin-right: -13px;
+}
+
+.OrangeButtonForRet {
+    min-width: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #FFF;
+    border: 1px solid #ce6200;
+    height: 24px;
+    width: auto;
+    /* background: url(./images/BackgroundImage_OrangeButton.jpg) repeat-x top left #eb6c18; */
+    padding: 4px 8px 0 8px;
+    float: left;
+    display: inline;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 1px;
+    margin-top: -7px;
+    margin-right: -13px;
+}
+
+.goldButtonForGPC {
+    min-width: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #FFF;
+    border: 1px solid #917335;
+    height: 18px;
+    width: auto;
+    /* background: url(./images/BackgroundImage_GoldButton.jpg) repeat-x top left #79542a; */
+    padding: 4px 8px 0 8px;
+    float: left;
+    display: inline;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 1px;
+    margin-top: -7px;
+    margin-right: -13px;
+}
+
+.brownButtonForRWCandRPB {
+    min-width: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #FFF;
+    border: 1px solid #841a19;
+    height: 18px;
+    width: auto;
+    /* background: url(./images/BackgroundImage_RedButton.jpg) repeat-x top left #962825; */
+    padding: 4px 8px 0 8px;
+    float: left;
+    display: inline;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 1px;
+    margin-top: -7px;
+    margin-right: -13px;
+}
+
+#wrapper1 {
+    height: auto !important;
+    padding-left: 5px;
+}
+
+.headerouter_r {
+    clear: both;
+    width: 80%;
+    margin-top: 5px;
+}
+
+.TopNavigation_ThreeColumns {
+    display: inline;
+    float: right;
+    height: 0;
+    margin-left: 30%;
+    margin-right: -26%;
+    margin-top: 5px;
+    padding-left: 80px;
+}
+
+.SmallGrey_TopNav {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #606060;
+}
+
+.NavigationLinksContainer {
+    width: auto;
+    display: inline;
+    float: left;
+    height: 12px;
+    border-right: #b0a89c 1px solid;
+    margin: 0;
+    padding: 2px 9px;
+}
+
+.SmallGrey_TopNav {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #606060;
+}
+
+A {
+    color: white;
+    text-decoration: none;
+    outline: 0 none;
+}
+
+a {
+    text-decoration: none;
+    line-height: inherit;
+    background-color: transparent;
+}
+
+.ShareLinksContainer {
+    width: auto;
+    display: inline;
+    float: left;
+    height: 12px;
+    margin: 0;
+    padding: 2px 6px;
+}
+
+.SmallGrey_TopNav {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #606060;
+}
+
+p {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.txt_boxnew {
+    text-align: center;
+    padding-left: 5px;
+    float: right;
+    clear: right;
+    padding-top: 0;
+}
+
+:root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+#header {
+    border-bottom: #39454a 0 solid;
+    margin-bottom: 0;
+    height: auto !important;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.bg-orange {
+    background-color: #f5821f;
+}
+
+header {
+    background-color: #f5821f;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    color: white;
+}
+
+.nav-header .middleContainer.updated-header {
+    width: 100%;
+    max-width: 1180px;
+    height: 40px;
+}
+
+.nav-header .middleContainer {
+    height: 63px;
+}
+
+.middleContainer {
+    min-width: 975px;
+    width: 100%;
+}
+
+.middleContainer {
+    width: 975px;
+    margin: 0 auto;
+}
+
+.clearfix:before, .clearfix:after {
+    content: " ";
+    display: table;
+}
+
+header.nav-header .middleContainer.updated-header .menu {
+    width: auto;
+    align-items: center;
+    display: flex;
+    padding-bottom: 5px;
+}
+
+header .menu {
+    height: 39px;
+    list-style: none;
+    display: block;
+    width: 990px !important;
+    float: left;
+    padding: 0;
+    margin: 3px 0 0 0;
+}
+
+header .menu li {
+    /* width: 170px; */
+    float: left;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #FFF !important;
+    margin-left: auto;
+    margin-right: 10px;
+    margin-top: 0;
+    padding-left: 5px;
+    text-align: center;
+}
+
+.arrowDown {
+    /* background: url(./images/backgrounds/DisplayImage_ArrowDown.png); */
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 20px;
+    padding: 6px;
+    padding: 6px;
+}
+
+.arrowDown {
+    cursor: pointer;
+    margin: 0 0 0 5px;
+}
+
+IMG {
+    border-width: 0;
+}
+
+img {
+    font-size: 0;
+    vertical-align: middle;
+    -ms-interpolation-mode: bicubic;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+}
