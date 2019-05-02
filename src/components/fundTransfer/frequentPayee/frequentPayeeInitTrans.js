@@ -119,7 +119,7 @@ class FrequentPayeeInitTrans extends React.Component {
                         </div>
                     </div>
                     <Tabs></Tabs>
-                    <div className="rightPanel" style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "85.66%", marginLeft: "-1.4em" }}>
+                    <div className="rightPanel" style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "85.66%", marginLeft: "-2.4em" }}>
                         <div style={{ border: '1px solid #707070', background:"white", paddingTop: "20px", paddingLeft: "40px", paddingBottom: "20px" }}>
                             <div className="backBtn">
                                 <span onClick={this.goBack}>&larr; Back</span>

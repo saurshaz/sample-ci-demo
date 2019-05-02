@@ -249,7 +249,7 @@ export default class Bank extends React.Component {
                 <div className="container" style={{ marginTop: "10px" }}>
                     <header className="nav-header">
                         <div className="middleContainer updated-header clearfix">
-                            <ul className="menu" style={{height:"60px"}}>
+                            <ul className="menu" style={{height:"60px", fontFamily: "Roboto medium"}}>
                                 <li>
                                     <a className="dropdown-toggle" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">

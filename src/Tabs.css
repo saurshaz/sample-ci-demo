@@ -36,9 +36,9 @@
 }
 
 .active .mainText {
-    /* padding: 12%; */
-    /* background-color: #193E6C; */
-    /* color: #FFFFFF;	 */
+    padding: 12%;
+    background-color: #193E6C;
+    color: #FFFFFF;	
     /* border-right: 3.5px solid #193E6C; */
 }
 

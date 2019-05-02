@@ -30,7 +30,7 @@ class Current extends React.Component {
 
     render() {
         return (
-            <div style={{ border: '1px solid #707070', boxShadow: "#000000", backgroundColor: "#F5F5F5", paddingTop: "20px", paddingLeft: "40px", paddingBottom: "30px", height: "310px" }}>
+            <div style={{ border: '1px solid #707070', boxShadow: "#000000", backgroundColor: "#F5F5F5", paddingTop: "20px", paddingLeft: "40px", paddingBottom: "30px", height: "301px" }}>
                  <div style={{ display:"flex",flexDirection:"row", font: "Roboto", color: "#000000", fontSize: "14px" }} className="m10">
 		    <div style={{ font: "Roboto, Regular", color: "#000000", fontSize: "14px",flex:"0 0 61%" }} className="m10">
                         Current Account {this.props.account.accountNumber}
