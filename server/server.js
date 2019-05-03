@@ -15,15 +15,15 @@ const path = require('path');
 const axios = require('axios');
 const request = require('request');
 
-// const SERVER = 'http://10.64.18.39:30258';
+const SERVER = 'http://10.64.18.39:30258';// For ICP.
 // const SERVER = 'http://119.81.79.228:30258'; // For Production.
-const SERVER = 'http://159.122.237.221:30748'; // public-cloud
+// const SERVER = 'http://159.122.237.221:30748'; // public-cloud
 
 // const MFP_SERVER = SERVER;
 // const MFP_SERVER = 'http://localhost:9080';
-// const MFP_SERVER = 'http://10.64.18.39:32094'; // ICP
-const MFP_SERVER = 'http://159.122.237.221:31506'; // public-cloud
-// http://159.122.237.221:31506 (Rajesh shared)
+const MFP_SERVER = 'http://10.64.18.39:32094'; // ICP
+// const MFP_SERVER = 'http://159.122.237.221:31506'; // public-cloud
+// http://159.122.237.221:31506 (Rajesh shared, public cloud)
 
 const logger = log4js.getLogger(appName);
 logger.level = process.env.LOG_LEVEL || 'info'
