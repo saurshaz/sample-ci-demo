@@ -32,7 +32,7 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "ibm-cloud-env": "^0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "log4js": "^4.0.2",
     "popper": "^1.0.1",
     "react": "^16.8.3",
