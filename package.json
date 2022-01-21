@@ -33,7 +33,7 @@
     "express": "^4.16.4",
     "ibm-cloud-env": "^0",
     "jquery": "^3.3.1",
-    "log4js": "^4.0.2",
+    "log4js": "^6.4.0",
     "popper": "^1.0.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
